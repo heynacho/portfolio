@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wave_text</title>
+</head>
+<body>
+    <svg xmlns="http://www.w3.org/2000/svg" version="1.1" id="Layer_1" x="0px" y="0px" viewBox="0 0 1920 860" style="enable-background:new 0 0 1920 1080;" xml:space="preserve">
+        <style type="text/css">
+          .st0 {
+            fill: none;
+            stroke: #fff; /* 원하는 색상 코드로 변경 */
+            stroke-width: 48;
+            stroke-dasharray: 2000; /* path의 길이와 동일한 값으로 설정 */
+            stroke-dashoffset: 2000;
+            animation: draw 5s linear forwards; /* 패스 그리기 애니메이션 */
+            transform-origin: center;
+          }
+      
+          @keyframes draw {
+            to {
+              stroke-dashoffset: 0;
+            }
+          }
+        </style>
+        <path class="st0" fill="none" d="M186.35,610.83c34,22,128.45,38.09,251.5,27.5c151-13,342.5-120,406-155c75.5-41.61,214.12-72.5,255-27c31,34.5-182,135.07-89,182c54.5,27.5,293.69-25.52,439-51c105.5-18.5,248,18.5,280.5,51" transform="scale(1.3)" transform-origin="center"/>
+        <path id="SVGID_x5F_1_x5F_" class="st1" fill="none" d="M186.35,610.83c34,22,128.45,38.09,251.5,27.5c151-13,342.5-120,406-155c75.5-41.61,214.12-72.5,255-27c31,34.5-182,135.07-89,182c54.5,27.5,293.69-25.52,439-51c105.5-18.5,248,18.5,280.5,51"  transform="scale(1.3)"  transform-origin="center"/>
+        <text id="movingText" font-size="28px" fill="#033495" font-family="Pretendard-Light-KSCpc-EUC-H" text-anchor="middle">
+          <textPath xlink:href="#SVGID_x5F_1_x5F_" startOffset="50%">
+            In our ever-changing society, I'm gathering my own droplets to create impactful waves, like those shaping rocks and gifting journeys to sea creatures, leaving their mark on the ecosystem. &nbsp; In our ever-changing society, I'm gathering my own droplets to create impactful waves, like those shaping rocks and gifting journeys to sea creatures, leaving their mark on the ecosystem.
+          </textPath>
+        </text>
+
+        <script>
+          // 텍스트 이동을 위한 자바스크립트 코드
+          let startOffset = 100; // 시작 offset
+          const movingText = document.getElementById('movingText').querySelector('textPath');
+
+          function animateText() {
+            startOffset -= 0.1; // 텍스트가 왼쪽으로 이동할 양을 조절
+            if (startOffset < 0) {
+              startOffset = 100; // 왼쪽 끝으로 가면 다시 오른쪽 끝으로 초기화
+            }
+            movingText.setAttribute('startOffset', `${startOffset}%`);
+
+            requestAnimationFrame(animateText);
+          }
+
+          animateText(); // 애니메이션 시작
+        </script>
+    </svg>
+</body>
+</html>

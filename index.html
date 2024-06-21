@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/reset.css">
+    <link rel="stylesheet" href="./css/index.css">
+    <script src="./js/jquery.js"></script>
+    <!-- <link rel="shortcut icon" type="image/png" href="./images/favicon.png"> -->
+    <title>Portfolio</title>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <h1 id="logo"><img src="./images/logo.png" alt="logo"></h1>
+            </div>
+
+            <nav class="main-menu">
+                <ul class="gnb">
+                    <li id="intro" class="selected-menu">
+                        <div class="menu-circle"></div>
+                        <div class="menu-txt">INTRO</div>
+                    </li>
+                    <li id="about-me">
+                        <div class="menu-circle"></div>
+                        <div class="menu-txt">ABOUT ME</div>
+                    </li>
+                    <li id="skill">
+                        <div class="menu-circle"></div>
+                        <div class="menu-txt">SKILL</div>
+                    </li>
+                    <li id="portfolio">
+                        <div class="menu-circle"></div>
+                        <div class="menu-txt">PORTFOLIO</div>
+                    </li>
+                    <li id="contact">
+                        <div class="menu-circle"></div>
+                        <div class="menu-txt">CONTACT</div>
+                    </li>
+                </ul>
+            </nav>
+        </div><!-- container -->
+    </header>
+
+    <main>
+        <section class="intro">
+            <div class="sc1-circle-deepblue">&nbsp;</div>
+            <div class="sc1-circle-beige">&nbsp;</div>
+            <div class="container">
+                <div class="greeting">
+                    <p class="message1">안녕하세요,</p>
+                    <p class="message2"><span class="bold-blue">더 나은 세상</span>을 만들고 싶은</p>
+                    <p class="message3">주니어 <span class="bold-pink">UI/UX디자이너</span> 조한나입니다.</p>
+                </div>
+
+                <div class="card">
+                    <p class="title">Cho Han Na<br><span class="light-blue">Portfolio</span> </p>
+                    <div class="ability bubble1">UI/UX<br>Design</div>
+                    <div class="ability bubble2">Graphic<br>Design</div>
+                    <div class="ability bubble3">Publishing</div>
+                    <div class="ability bubble4">Marketing</div>
+                    <div id="wave-line">&nbsp;</div>
+                    <script>
+                        $(function() {
+                            $('#wave-line').load('text_svg.html');
+                        })
+                    </script>
+                </div>
+            </div><!-- container -->
+        </section><!-- intro -->
+
+        <section class="about-me">
+            <div class="sc2-circle-midblue">&nbsp;</div>
+            <div class="sc2-circle-lightblue">&nbsp;</div>
+            <div class="container">
+                <div class="sc2-flex-wrap">
+                    <h2 class="title">About ME</h2>
+                    <div class="info">
+                        <p class="name">조한나 <span class="light">CHO HAN NA</span></p>    
+                        <div class="hashtag">
+                            <div class="tag1">#UIUX DESIGNER</div>
+                            <div class="tag2">#MARKETER</div>
+                        </div><!-- hashtag -->
+                    </div><!-- info -->
+                </div><!-- sc2-flex-wrap -->
+                <div class="img-txt">
+                    <div class="img"><img src="#" alt="(image)"></div>
+                    <ul class="txt">
+                        <li class="profile">
+                            <div class="sub-title">PROFILE</div>
+                            <div class="content">
+                                🎂  1995. 02. 22 <br>
+                                🏠  서울특별시 광진구 <br>
+                                📞  010 - 8913 - 1106  <br>
+                                📧  mellow2362@naver.com
+                            </div>
+                        </li>
+                        <li>
+                            <div class="sub-title">EDUCATION</div>
+                            <div class="content">
+                                🎓  2024.2 - 2024.7  서울방송정보국제교육원 UIUX디자인 교육 (수료) <br>
+                                🎓  2018.3 - 2020.8  서울여자대학교 디지털미디어학과 (편입/졸업) <br>
+                                🎓  2013.3 - 2018.2  경성대학교 커뮤니케이션학부  (중퇴) <br>
+                                🎓  2010.3 - 2013.2  부산국제외국어고등학교  (졸업)
+                            </div>
+                        </li>
+                        <li>
+                            <div class="sub-title">CERTIFICATE</div>
+                            <div class="content">
+                                📜  컴퓨터그래픽스 운용기능사 자격증
+                            </div>
+                        </li>
+                        <li>
+                            <div class="sub-title">PERSONALITY</div>
+                            <div class="content content-pink">#CHALLENGING #SOCIABLE #FLEXIBLE</div>
+                        </li>
+                    </ul>
+                </div><!-- img-txt -->
+            </div><!-- container -->
+        </section><!-- about-me -->
+
+        <section class="skill">
+            <div class="container">
+                <div class="sc3-flex-wrap">
+                    <h2 class="title">Skill</h2>
+                    <div class="sub-menu">
+                        <div class="menu1 selected-skill-menu">#DESIGN</div>
+                        <div class="menu2">#PUBLISHING</div>
+                    </div><!-- sub-menu -->
+                </div><!-- sc3-flex-wrap -->
+                <!-- <div class="sub-menu pc">
+                    <div class="menu1 selected-skill-menu">#DESIGN</div>
+                    <div class="menu2">#PUBLISHING</div>
+                </div>sub-menu pc -->
+
+                <ul class="menu1-content">
+                    <li class="ps">
+                        <div class="prog-title">
+                            <img src="./images/ps.png" alt="ps logo" />
+                            <p class="prog">Adobe<br>Photoshop</p>
+                        </div>
+                        98%
+                    </li>
+                    <li class="ai">
+                        <div class="prog-title">
+                            <img src="./images/ai.png" alt="ai logo" />
+                            <p class="prog">Adobe<br>Illustrator</p>
+                        </div>
+                        98%
+                    </li>
+                    <li class="pr">
+                        <div class="prog-title">
+                            <img src="./images/pr.png" alt="pr logo" />
+                            <p class="prog">Adobe<br>Premiere Pro</p>
+                        </div>
+                        80%
+                    </li>
+                    <li class="ae">
+                        <div class="prog-title">
+                            <img src="./images/ae.png" alt="ae logo" />
+                            <p class="prog">Adobe<br>After Effect</p>
+                        </div>
+                        80%
+                    </li>
+                    <li class="xd">
+                        <div class="prog-title">
+                            <img src="./images/xd.png" alt="xd logo" />
+                            <p class="prog">Adobe<br>XD</p>
+                        </div>
+                        70%
+                    </li>
+                    <li class="fg">
+                        <div class="prog-title">
+                            <img src="./images/figma.png" alt="fg logo" />
+                            <p class="prog">Figma</p>
+                        </div>
+                        90%
+                    </li>
+                </ul><!-- menu1-content -->
+    
+                <ul class="menu2-content">
+                    <li class="html">
+                        <p class="prog">HTML</p>
+                        <p class="num">90%</p>
+                    </li>
+                    <li class="css">
+                        <p class="prog">CSS</p>
+                        <p class="num">90%</p>
+                    </li>
+                    <li class="js">
+                        <p class="prog">JavaScript</p>
+                        <p class="num">50%</p>
+                    </li>
+                    <li class="jq">
+                        <p class="prog">jQuery</p>
+                        <p class="num">50%</p>
+                    </li>
+                    <li class="git">
+                        <p class="prog">Git Hub</p>
+                        <p class="num">50%</p>
+                    </li>
+                    <li class="sass">
+                        <p class="prog">SASS</p>
+                        <p class="num">50%</p>
+                    </li>
+                </ul><!-- menu2-content -->
+            </div><!-- container -->
+
+        </section><!-- skill -->
+
+        <section class="portfolio">
+            <div class="container">
+                <h2 class="title">Portfolio</h2>
+            </div><!-- container -->
+            <div class="sc3-bubble project1">
+                <div class="desc">
+                    <p class="small">2020 서울여자대학교<br>졸업프로젝트</p>
+                    <p class="name">내로라: 내일로 로드 라인</p>
+                    <div class="btn-box">
+                        <button class="pf-button web">Website <img src="./images/right-arrow-white.png" alt=""></button>
+                        <button class="pf-button figma">Figma <img src="./images/right-arrow-white.png" alt=""></button>
+                    </div>
+                </div><!-- desc -->
+                <img src="./images/project1.png" alt="project1">
+            </div><!-- project1 -->
+
+            <div class="sc3-bubble project2">
+                <div class="desc">
+                    <p class="small">2024 방송정보국제교육원 개인 프로젝트</p>
+                    <p class="name">클립서비스 웹 메인 페이지 리뉴얼</p>
+                    <!-- <div class="web">More</div> -->
+                </div><!-- desc -->
+                <img src="" alt="2">
+            </div><!-- project2 -->
+
+            <div class="sc3-bubble project3">
+                <div class="desc">
+                    <p class="small">2024 방송정보국제교육원 팀 프로젝트</p>
+                    <p class="name">궁중문화축전 반응형 웹페이지 리뉴얼</p>
+                    <!-- <div class="web">More</div> -->
+                </div><!-- desc -->
+                <img src="" alt="3">
+            </div><!-- project3 -->
+        </section><!-- portfolio -->
+
+        <section class="contact">
+            <div class="container">
+                <h2 class="title">Contact</h2>
+            </div><!-- container -->
+            <div class="info-circle">
+                <form action="#" method="post">
+                    <div class="info">
+                        <input type="text" name="name" class="name" value="Name">
+                        <input type="tel" name="tel" class="tel" value="Tel">
+                        <input type="email" name="email" class="email" value="E-mail">
+                        <textarea id="message" rows="3" name="message" class="message" value="Message">Message</textarea>
+                    </div>
+                    <input type="submit" class="submit" value="SUBMIT">
+                </form>
+            </div><!-- info-circle -->
+        </section>
+    </main>
+
+    <!-- <footer>
+        <div class="bottomline"> &copy; 2024. heynacho All rights reserved.</div>
+    </footer> -->
+</body>
+</html>

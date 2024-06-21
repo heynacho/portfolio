@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SVG Text Animation</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+            margin: 0;
+        }
+        svg {
+            width: 80%;
+            height: auto;
+        }
+        .st0 {
+            fill: none;
+            stroke: #292D60;
+            stroke-width: 48;
+            stroke-dasharray: 2000;
+            stroke-dashoffset: 2000;
+            animation: draw 5s linear forwards;
+        }
+        @keyframes draw {
+            to {
+                stroke-dashoffset: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Layer_1" x="0px" y="0px" viewBox="0 0 1920 1080" style="enable-background:new 0 0 1920 1080;" xml:space="preserve">
+        <path class="st0" fill="none" d="M186.35,610.83c34,22,128.45,38.09,251.5,27.5c151-13,342.5-120,406-155c75.5-41.61,214.12-72.5,255-27c31,34.5-182,135.07-89,182c54.5,27.5,293.69-25.52,439-51c105.5-18.5,248,18.5,280.5,51" />
+        <path id="SVGID_x5F_1_x5F_" class="st1" fill="none" d="M186.35,610.83c34,22,128.45,38.09,251.5,27.5c151-13,342.5-120,406-155c75.5-41.61,214.12-72.5,255-27c31,34.5-182,135.07-89,182c54.5,27.5,293.69-25.52,439-51c105.5-18.5,248,18.5,280.5,51" />
+        <text font-size="45px" fill="#FFFFFF" font-family="Pretendard-Light-KSCpc-EUC-H">
+            <textPath id="textPath" xlink:href="#SVGID_x5F_1_x5F_" startOffset="0%">
+                Your Text Here &nbsp; Your Text Here &nbsp; Your Text Here &nbsp; Your Text Here &nbsp; Your Text Here &nbsp; Your Text Here &nbsp; Your Text Here &nbsp; Your Text Here
+            </textPath>
+        </text>
+    </svg>
+
+    <script>
+        const textPath = document.getElementById('textPath');
+        let offset = 0;
+
+        function animateText() {
+            offset -= 1;
+            if (offset < -100) {
+                offset = 0;
+            }
+            textPath.setAttribute('startOffset', `${offset}%`);
+            requestAnimationFrame(animateText);
+        }
+
+        animateText();
+    </script>
+</body>
+</html>

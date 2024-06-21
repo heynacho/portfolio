@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>곡선그리기</title>
+</head>
+<body>
+    <!-- <canvas id="myCanvas" width="600" height="400"></canvas>
+
+    <script>
+        const canvas = document.getElementById('myCanvas');
+        const ctx = canvas.getContext('2d');
+
+        let t = 0; // 시간 변수
+        let speed = 0.02; // 곡선 속도 조절
+
+        function draw() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+            // 시작점과 끝점 설정
+            const startX = 100;
+            const startY = 200;
+            const endX = 500;
+            const endY = 200;
+
+            // 제어점 계산
+            const controlX = 300 + Math.cos(t) * 100;
+            const controlY = 100 + Math.sin(t) * 100;
+
+            // 곡선 그리기
+            ctx.beginPath();
+            ctx.moveTo(startX, startY);
+            ctx.quadraticCurveTo(controlX, controlY, endX, endY);
+            ctx.lineWidth = 4;
+            ctx.strokeStyle = 'blue';
+            ctx.stroke();
+
+            // 시간 업데이트
+            t += speed;
+
+            requestAnimationFrame(draw);
+        }
+
+        draw();
+    </script> -->
+
+    <!-- <canvas id="myCanvas" width="600" height="400"></canvas>
+    <script>
+        const canvas = document.getElementById('myCanvas');
+        const ctx = canvas.getContext('2d');
+
+        const amplitude = 50; // 진폭 (물결의 높이)
+        const wavelength = 100; // 파장 (물결의 너비)
+        const speed = 0.01; // 속도 (물결의 이동 속도)
+        let yOffset = canvas.height / 2; // 시작 위치 (중심 선의 높이)
+
+        function drawWave() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            ctx.beginPath();
+            ctx.moveTo(0, yOffset);
+
+            for (let x = 0; x < canvas.width; x += 1) {
+                let y = yOffset + amplitude * Math.sin(x / wavelength * Math.PI * 2 + Date.now() * speed);
+                ctx.lineTo(x, y);
+            }
+
+            ctx.lineWidth = 2;
+            ctx.strokeStyle = 'blue';
+            ctx.stroke();
+
+            requestAnimationFrame(drawWave);
+        }
+
+        drawWave();
+    </script> -->
+
+    <!-- <canvas id="myCanvas" width="600" height="400"></canvas>
+    <script>
+        const canvas = document.getElementById('myCanvas');
+        const ctx = canvas.getContext('2d');
+
+        const startX = 100;
+        const startY = 200;
+        const endX = 500;
+        const endY = 200;
+        const controlX = 300;
+        const controlY = 100;
+
+        ctx.beginPath();
+        ctx.moveTo(startX, startY);
+        ctx.quadraticCurveTo(controlX, controlY, endX, endY);
+        ctx.lineWidth = 4;
+        ctx.strokeStyle = 'blue';
+        ctx.stroke();
+    </script> -->
+
+    <canvas id="myCanvas" width="600" height="400"></canvas>
+    <script>
+        const canvas = document.getElementById('myCanvas');
+        const ctx = canvas.getContext('2d');
+
+        const centerX = canvas.width / 2;
+        const centerY = canvas.height / 2;
+        const amplitude = 50; // 진폭 (파도 높이)
+        const wavelength = 200; // 파장 (파도 길이)
+
+        ctx.beginPath();
+        ctx.moveTo(0, centerY);
+
+        for (let x = 0; x <= canvas.width; x++) {
+            // y 좌표 계산: 사인 함수를 사용하여 파도 모양 곡선을 그립니다.
+            let y = centerY + amplitude * Math.sin(x / wavelength * Math.PI * 2);
+            ctx.lineTo(x, y);
+        }
+
+        ctx.lineWidth = 2;
+        ctx.strokeStyle = 'blue';
+        ctx.stroke();
+    </script>
+</body>
+</html>

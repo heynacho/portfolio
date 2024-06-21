@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        * {
+            margin: 0; padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* .container {
+            width: 100%;
+            max-width: 1416px;
+            margin: 0 auto;
+            padding: 0 12px;
+        } */
+
+        .contact {
+            padding-top: 48px;
+            background-color: beige;
+
+            overflow: hidden;
+        }
+        
+        .info-circle {
+            width: 110vw; height: 110vw;
+            margin: 0 auto;
+            margin-bottom: -40px;
+            padding: 15%;
+            border-radius: 50%;
+            padding-top: 60px;
+            background-color: darkslateblue;
+            
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        input,textarea {
+            width: 100%;
+        }
+    </style>
+    <title>overflow</title>
+</head>
+<body>
+    <section class="contact">
+        <div class="container">
+            <h2 class="title">Contact</h2>
+        </div><!-- container -->
+        <div class="info-circle">
+            <form action="#" method="post">
+                <div class="info">
+                    <input type="text" name="name" class="name" value="Name">
+                    <input type="tel" name="tel" class="tel" value="Tel">
+                    <input type="email" name="email" class="email" value="E-mail">
+                    <textarea id="message" rows="3" name="message" class="message" value="Message">Message</textarea>
+                </div>
+                <input type="submit" class="submit" value="SUBMIT">
+            </form>
+        </div><!-- info-circle -->
+    </section>
+</body>
+</html>

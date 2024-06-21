@@ -51,6 +51,10 @@ header {
             img {
                 width: 100%;
                 transform: translateY(50%);
+
+                @include responsive(large-screens) {
+                    transform: translateY(0%);
+                }
             }
         }  // logo
         
@@ -70,9 +74,10 @@ header {
                     cursor: pointer;
                     background-color: $color-beige;
                     opacity: 0.5;
-                }
-                .menu-circle:hover {
-                    opacity: 1;
+
+                    &:hover {
+                        opacity: 1;
+                    }
                 }
 
                 .menu-txt {
@@ -91,6 +96,39 @@ header {
                     font-size: 14px;
                 }
             }  // selected-menu
+
+            @include responsive(large-screens) {
+                li {
+                    margin-left: 12px;
+                    .menu-txt {
+                        font-size: 16px;
+                        color: $color-beige;
+                    }
+                    .menu-circle {
+                        width: 6px; height: 6px;
+                        color: $color-beige;
+                    }
+
+                    &:hover {
+                        cursor: pointer;
+                        .menu-txt {
+                            font-weight: bold;
+                            color: $color-lightblue;
+                        }
+                        .menu-circle {
+                            background-color: $color-lightblue;
+                            opacity: 1;
+                        }
+                    }
+
+                }
+
+                .selected-menu {
+                    .menu-txt {
+                        font-size: 16px;
+                    }
+                }
+            }
         }  //gnb
     }  // container
 } // header
@@ -369,7 +407,9 @@ section.skill {
             @include responsive(large-screens) {
                 align-items: center;
                 div {
+                    margin-left: 12px;
                     padding: 4px 24px;
+                    font-size: 20px;
                 }
             }
         }  // sub-menu
@@ -429,14 +469,31 @@ section.skill {
             li {
                 width: 32vw; height: 32vw;
                 max-width: 460px; max-height: 460px;
+                padding: 7.8vw 5vw;
+                font-size: 88px;
+
+                .prog-title {
+                    padding-bottom: 1.2vw;
+
+                    img {
+                        width: 64px;
+                    }
+                    .prog {
+                        font-size: 24px;
+                    }
+                }
             }
         }
 
     }  // ul
+
     .menu2-content {
         display: none;
     }
 
+    @include responsive(large-screens) {
+        padding: 96px 0;
+    }
 }  //section.skill
 
 // ==== portfolio ====
@@ -651,6 +708,29 @@ section.contact {
                 }
             }
         }  // form
+
+        @include responsive(large-screens) {
+            width: 80vw; height: 80vw;
+            max-width: 856px; max-height: 856px;
+            margin: 0 auto;
+            padding: 200px 150px;
+
+            margin-bottom: 0;
+            transform: translateX(0%);
+
+            form {
+                input, textarea {
+                    padding-bottom: 16px;
+                    // margin-bottom: 2vw;
+                    font-size: 16px;
+                }
+
+                .submit {
+                    margin: 32px auto 0;
+                    padding: 12px 24px;
+                }
+            }
+        }
     } // info-circle
 }  // section.contact
 

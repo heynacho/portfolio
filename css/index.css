@@ -159,6 +159,11 @@ header .container .logo img {
   width: 100%;
   transform: translateY(50%);
 }
+@media (min-width: 1024px) {
+  header .container .logo img {
+    transform: translateY(0%);
+  }
+}
 header .container .gnb {
   display: flex;
 }
@@ -189,6 +194,34 @@ header .container .gnb .selected-menu .menu-circle {
 header .container .gnb .selected-menu .menu-txt {
   color: #FFB8D0;
   font-size: 14px;
+}
+@media (min-width: 1024px) {
+  header .container .gnb li {
+    margin-left: 12px;
+  }
+  header .container .gnb li .menu-txt {
+    font-size: 16px;
+    color: #FEE5E1;
+  }
+  header .container .gnb li .menu-circle {
+    width: 6px;
+    height: 6px;
+    color: #FEE5E1;
+  }
+  header .container .gnb li:hover {
+    cursor: pointer;
+  }
+  header .container .gnb li:hover .menu-txt {
+    font-weight: bold;
+    color: #AEE4FF;
+  }
+  header .container .gnb li:hover .menu-circle {
+    background-color: #AEE4FF;
+    opacity: 1;
+  }
+  header .container .gnb .selected-menu .menu-txt {
+    font-size: 16px;
+  }
 }
 
 h2 {
@@ -418,7 +451,9 @@ section.skill .sc3-flex-wrap .sub-menu .selected-skill-menu {
     align-items: center;
   }
   section.skill .sc3-flex-wrap .sub-menu div {
+    margin-left: 12px;
     padding: 4px 24px;
+    font-size: 20px;
   }
 }
 section.skill ul {
@@ -465,10 +500,26 @@ section.skill ul li .prog-title .prog {
     height: 32vw;
     max-width: 460px;
     max-height: 460px;
+    padding: 7.8vw 5vw;
+    font-size: 88px;
+  }
+  section.skill ul li .prog-title {
+    padding-bottom: 1.2vw;
+  }
+  section.skill ul li .prog-title img {
+    width: 64px;
+  }
+  section.skill ul li .prog-title .prog {
+    font-size: 24px;
   }
 }
 section.skill .menu2-content {
   display: none;
+}
+@media (min-width: 1024px) {
+  section.skill {
+    padding: 96px 0;
+  }
 }
 
 section.portfolio {
@@ -659,6 +710,26 @@ section.contact .info-circle form .submit:hover {
   border: 1px solid #FFFFFF;
   color: #FFFFFF;
   background-color: #AEE4FF;
+}
+@media (min-width: 1024px) {
+  section.contact .info-circle {
+    width: 80vw;
+    height: 80vw;
+    max-width: 856px;
+    max-height: 856px;
+    margin: 0 auto;
+    padding: 200px 150px;
+    margin-bottom: 0;
+    transform: translateX(0%);
+  }
+  section.contact .info-circle form input, section.contact .info-circle form textarea {
+    padding-bottom: 16px;
+    font-size: 16px;
+  }
+  section.contact .info-circle form .submit {
+    margin: 32px auto 0;
+    padding: 12px 24px;
+  }
 }
 
 footer {

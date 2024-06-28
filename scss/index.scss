@@ -47,6 +47,7 @@ header {
 
         .logo {
             width: 20%;
+            max-width: 198px;
 
             img {
                 width: 100%;
@@ -81,7 +82,7 @@ header {
                 }
 
                 .menu-txt {
-                    margin: 0 16px 0 8px;
+                    margin: -4px 16px 0 8px;
                     font-size: 0;
                 }
             }  // li
@@ -160,6 +161,7 @@ section.intro {
     
 
     .greeting {
+        height: 30vh;
         margin: 64px 0;
 
         p {
@@ -215,7 +217,7 @@ section.intro {
         .bubble1 {
             top: 10%; right: 5%;
             width: 16vw; height: 16vw;
-            // max-width: 108px;
+            max-width: 196px; max-height: 196px;
             font-size: 3.5vw;
             line-height: 1;
             letter-spacing: -0.5px;
@@ -226,7 +228,7 @@ section.intro {
         .bubble2 {
             top: 30%; right: 25%;
             width: 12vw; height: 12vw;
-            // max-width: 86px;
+            max-width: 148px; max-height: 148px;
             font-size: 2.5vw;
             line-height: 1;
             letter-spacing: -1px;
@@ -238,7 +240,7 @@ section.intro {
         .bubble3 {
             top: 9%; right: 37%;
             width: 10vw; height: 10vw;
-            // max-width: 66px;
+            max-width: 124px; max-height: 124px;
             font-size: 2vw;
             letter-spacing: -0.5px;
             background: linear-gradient(to right, $color-lightblue, $color-midblue);
@@ -247,7 +249,7 @@ section.intro {
         .bubble4 {
             top: 20%; right: 50%;
             width: 9vw; height: 9vw;
-            // max-width: 56px;
+            max-width: 112px; max-height: 112px;
             font-size: 1.8vw;
             letter-spacing: -0.5px;
             background: linear-gradient(to right, $color-deepblue -30%, $color-lightblue)
@@ -257,6 +259,23 @@ section.intro {
             padding-top: 16px;
         }
 
+        @media (min-width: 1200px) {
+            p.title {
+                font-size: 60px;
+            }
+            .bubble1 {
+                font-size: 42px;
+            }
+            .bubble2 {
+                font-size: 30px;
+            }
+            .bubble3 {
+                font-size: 24px;
+            }
+            .bubble4 {
+                font-size: 21px;
+            }
+        }
     }  // card
 } // section.intro
 
@@ -541,8 +560,9 @@ section.portfolio {
                 margin-top: 1vw;
                 padding: 1vw 2vw;
 
-                font-family: $font-regular;
+                font-family: $font-light;
                 font-size: 3.5vw;
+                font-weight: 100;
                 text-align: left;
                 border: 1px solid $color-beige;
                 color: $color-beige;

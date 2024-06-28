@@ -3,10 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="title" property="og:title" content="포트폴리오">
+    <meta name="images" property="og:image" content="./images/og_thumbnail.jpg">
+    <meta name="description" property="og:description" content="시작은 포트폴리오">
+    <meta name="type" property="og:type" content="article">
     <link rel="stylesheet" href="./css/reset.css">
     <link rel="stylesheet" href="./css/index.css">
     <script src="./js/jquery.js"></script>
-    <!-- <link rel="shortcut icon" type="image/png" href="./images/favicon.png"> -->
+    <link rel="shortcut icon" type="image/png" href="./images/favicon.png">
     <title>Portfolio</title>
 </head>
 <body>
@@ -18,25 +22,35 @@
 
             <nav class="main-menu">
                 <ul class="gnb">
-                    <li id="intro" class="selected-menu">
-                        <div class="menu-circle"></div>
-                        <div class="menu-txt">INTRO</div>
+                    <li class="selected-menu">
+                        <a href="#intro">
+                            <div class="menu-circle"></div>
+                            <div class="menu-txt">INTRO</div>
+                        </a>
                     </li>
-                    <li id="about-me">
-                        <div class="menu-circle"></div>
-                        <div class="menu-txt">ABOUT ME</div>
+                    <li>
+                        <a href="#about-me">
+                            <div class="menu-circle"></div>
+                            <div class="menu-txt">ABOUT ME</div>
+                        </a>
                     </li>
-                    <li id="skill">
-                        <div class="menu-circle"></div>
-                        <div class="menu-txt">SKILL</div>
+                    <li>
+                        <a href="#skill">
+                            <div class="menu-circle"></div>
+                            <div class="menu-txt">SKILL</div>
+                        </a>
                     </li>
-                    <li id="portfolio">
-                        <div class="menu-circle"></div>
-                        <div class="menu-txt">PORTFOLIO</div>
+                    <li>
+                        <a href="#portfolio">
+                            <div class="menu-circle"></div>
+                            <div class="menu-txt">PORTFOLIO</div>
+                        </a>
                     </li>
-                    <li id="contact">
-                        <div class="menu-circle"></div>
-                        <div class="menu-txt">CONTACT</div>
+                    <li>
+                        <a href="#contact">
+                            <div class="menu-circle"></div>
+                            <div class="menu-txt">CONTACT</div>
+                        </a>
                     </li>
                 </ul>
             </nav>
@@ -44,7 +58,7 @@
     </header>
 
     <main>
-        <section class="intro">
+        <section id="intro" class="intro">
             <div class="sc1-circle-deepblue">&nbsp;</div>
             <div class="sc1-circle-beige">&nbsp;</div>
             <div class="container">
@@ -70,7 +84,7 @@
             </div><!-- container -->
         </section><!-- intro -->
 
-        <section class="about-me">
+        <section id="about-me" class="about-me">
             <div class="sc2-circle-midblue">&nbsp;</div>
             <div class="sc2-circle-lightblue">&nbsp;</div>
             <div class="container">
@@ -120,7 +134,7 @@
             </div><!-- container -->
         </section><!-- about-me -->
 
-        <section class="skill">
+        <section id="skill" class="skill">
             <div class="container">
                 <div class="sc3-flex-wrap">
                     <h2 class="title">Skill</h2>
@@ -209,7 +223,7 @@
 
         </section><!-- skill -->
 
-        <section class="portfolio">
+        <section id="portfolio" class="portfolio">
             <div class="container">
                 <h2 class="title">Portfolio</h2>
             </div><!-- container -->
@@ -244,7 +258,7 @@
             </div><!-- project3 -->
         </section><!-- portfolio -->
 
-        <section class="contact">
+        <section  id="contact" class="contact">
             <div class="container">
                 <h2 class="title">Contact</h2>
             </div><!-- container -->

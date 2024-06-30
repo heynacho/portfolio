@@ -1,3 +1,4 @@
+@charset "UTF-8";
 @font-face {
   font-family: "Pretendard-Thin";
   src: url("https://fastly.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Thin.woff") format("woff");
@@ -124,7 +125,7 @@ body .sc1-circle-deepblue {
   border-radius: 50%;
   overflow: hidden;
   position: absolute;
-  top: -1%;
+  top: -3%;
   right: -16%;
   z-index: -1;
   background-color: #033495;
@@ -179,14 +180,15 @@ header .container .gnb li .menu-circle {
   border-radius: 50%;
   cursor: pointer;
   background-color: #FEE5E1;
-  opacity: 0.5;
-}
-header .container .gnb li .menu-circle:hover {
-  opacity: 1;
 }
 header .container .gnb li .menu-txt {
   margin: -4px 16px 0 8px;
   font-size: 0;
+}
+header .container .gnb li:hover .menu-txt {
+  margin: -4px 16px 0 8px;
+  font-size: 14px;
+  color: #FEE5E1;
 }
 header .container .gnb .selected-menu .menu-circle {
   background-color: #FFB8D0;
@@ -236,16 +238,17 @@ h2 {
 }
 
 section.intro {
-  margin: 96px 0;
+  margin: 48px 0 96px;
 }
 section.intro .greeting {
-  height: 30vh;
+  height: 15vh;
   margin: 64px 0;
 }
 section.intro .greeting p {
   margin-bottom: -8px;
   font-size: calc(16px + 1.4vw);
   letter-spacing: -1px;
+  opacity: 0;
 }
 section.intro .greeting p .bold-blue {
   font-weight: bold;
@@ -255,11 +258,37 @@ section.intro .greeting p .bold-pink {
   font-weight: bold;
   color: #FFB8D0;
 }
+section.intro .greeting .message1 {
+  animation: greetingtext 0.5s ease-out forwards;
+}
+section.intro .greeting .message2 {
+  animation: greetingtext 0.5s 1s ease-out forwards;
+}
+section.intro .greeting .message3 {
+  animation: greetingtext 0.5s 1.5s ease-out forwards;
+}
+@media (min-width: 1024px) {
+  section.intro .greeting {
+    height: 20vh;
+  }
+}
+@keyframes greetingtext {
+  from {
+    opacity: 0;
+    transform: translateX(-32px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0px);
+  }
+}
 section.intro .card {
   position: relative;
-  border-radius: 16px;
+  border-radius: 3vw;
   color: #FFFFFF;
   background-color: #033495;
+  opacity: 0;
+  animation: card 0.5s 2s ease-out forwards;
 }
 section.intro .card p.title {
   position: absolute;
@@ -293,6 +322,8 @@ section.intro .card .bubble1 {
   letter-spacing: -0.5px;
   text-align: center;
   background: linear-gradient(to right, #FFB8D0, #FEE5E1);
+  opacity: 0;
+  animation: bubble 0.5s 5.5s ease-out forwards;
 }
 section.intro .card .bubble2 {
   top: 30%;
@@ -306,6 +337,8 @@ section.intro .card .bubble2 {
   letter-spacing: -1px;
   text-align: center;
   background: linear-gradient(to right, #6A9CFD, #FFB8D0);
+  opacity: 0;
+  animation: bubble 0.5s 5.9s ease-out forwards;
 }
 section.intro .card .bubble3 {
   top: 9%;
@@ -317,6 +350,8 @@ section.intro .card .bubble3 {
   font-size: 2vw;
   letter-spacing: -0.5px;
   background: linear-gradient(to right, #AEE4FF, #6A9CFD);
+  opacity: 0;
+  animation: bubble 0.5s 5.7s ease-out forwards;
 }
 section.intro .card .bubble4 {
   top: 20%;
@@ -328,13 +363,28 @@ section.intro .card .bubble4 {
   font-size: 1.8vw;
   letter-spacing: -0.5px;
   background: linear-gradient(to right, #033495 -30%, #AEE4FF);
+  opacity: 0;
+  animation: bubble 0.5s 6s ease-out forwards;
+}
+@keyframes bubble {
+  0% {
+    opacity: 0;
+    transform: scale(0.7);
+  }
+  85% {
+    transform: scale(1.1);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
 }
 section.intro .card #wave-line {
   padding-top: 16px;
 }
 @media (min-width: 1200px) {
   section.intro .card p.title {
-    font-size: 60px;
+    font-size: 64px;
   }
   section.intro .card .bubble1 {
     font-size: 42px;
@@ -347,6 +397,16 @@ section.intro .card #wave-line {
   }
   section.intro .card .bubble4 {
     font-size: 21px;
+  }
+}
+@keyframes card {
+  from {
+    opacity: 0;
+    transform: translateY(32px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0px);
   }
 }
 
@@ -374,8 +434,8 @@ section.about-me .sc2-circle-lightblue {
   border-radius: 50%;
   background-color: #AEE4FF;
   position: absolute;
-  top: calc(5% + 7vh);
-  left: 5%;
+  top: calc(50% + 7vh);
+  right: -15%;
   z-index: -1;
 }
 section.about-me .sc2-flex-wrap {
@@ -441,7 +501,7 @@ section.about-me .img-txt .txt .sub-title:before {
   z-index: -1;
 }
 section.about-me .img-txt .txt .content {
-  margin-bottom: 24px;
+  margin-bottom: 32px;
 }
 section.about-me .img-txt .txt .content-pink {
   color: #FFB8D0;
@@ -459,6 +519,7 @@ section.skill .sc3-flex-wrap {
 }
 section.skill .sc3-flex-wrap .sub-menu {
   display: flex;
+  cursor: pointer;
 }
 section.skill .sc3-flex-wrap .sub-menu div {
   margin-left: 8px;
@@ -467,6 +528,9 @@ section.skill .sc3-flex-wrap .sub-menu div {
   border-radius: 16px;
   font-size: 14px;
   opacity: 0.5;
+}
+section.skill .sc3-flex-wrap .sub-menu div:hover {
+  opacity: 1;
 }
 section.skill .sc3-flex-wrap .sub-menu .selected-skill-menu {
   border: 0;
@@ -487,6 +551,7 @@ section.skill ul {
   margin-top: 32px;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
+  display: none;
 }
 section.skill ul li {
   display: block;
@@ -498,6 +563,9 @@ section.skill ul li {
   font-size: 12vw;
   font-weight: 900;
   text-align: center;
+  opacity: 0;
+  transition: opacity 0.5s ease, transform 1s ease;
+  transform: translateY(5%) rotate(30deg); /* 회전 효과 추가 */
 }
 section.skill ul li .prog-title {
   display: flex;
@@ -517,6 +585,10 @@ section.skill ul li .prog-title .prog {
   line-height: 1.2;
   text-align: left;
   color: #AEE4FF;
+}
+section.skill ul .active-skill {
+  opacity: 1;
+  transform: translateY(0%) rotate(0deg); /* 회전 애니메이션 */
 }
 @media (min-width: 1024px) {
   section.skill ul {
@@ -540,8 +612,8 @@ section.skill ul li .prog-title .prog {
     font-size: 24px;
   }
 }
-section.skill .menu2-content {
-  display: none;
+section.skill .menu-show {
+  display: grid;
 }
 @media (min-width: 1024px) {
   section.skill {
@@ -562,6 +634,9 @@ section.portfolio .sc3-bubble {
   position: absolute;
   border-radius: 50%;
   mix-blend-mode: multiply;
+}
+section.portfolio .sc3-bubble:hover {
+  transform: scale(1.1);
 }
 section.portfolio .desc {
   position: relative;
@@ -614,8 +689,9 @@ section.portfolio .project1 {
 }
 @media (min-width: 600px) {
   section.portfolio .project1 {
-    max-width: 480px;
-    max-height: 480px;
+    right: 30%;
+    max-width: 600px;
+    max-height: 600px;
     padding: 105px 70px;
   }
   section.portfolio .project1 .small {
@@ -643,7 +719,7 @@ section.portfolio .project1 {
     margin-top: 3px;
   }
   section.portfolio .project1 img {
-    width: 126px;
+    height: 100%;
   }
 }
 section.portfolio .project2, section.portfolio .project3 {
@@ -659,13 +735,16 @@ section.portfolio .project2 .name, section.portfolio .project3 .name {
   font-size: 4vw;
   color: #033495;
 }
+section.portfolio .project2 .btn-box, section.portfolio .project3 .btn-box {
+  display: none;
+}
 section.portfolio .project2 img, section.portfolio .project3 img {
   display: none;
 }
 @media (min-width: 600px) {
   section.portfolio .project2, section.portfolio .project3 {
-    max-width: 300px;
-    max-height: 300px;
+    max-width: 480px;
+    max-height: 480px;
     padding: 80px 60px;
   }
   section.portfolio .project2 .small, section.portfolio .project3 .small {
@@ -693,6 +772,57 @@ section.portfolio .project3 {
     bottom: 0;
   }
 }
+section.portfolio .project4, section.portfolio .project5, section.portfolio .project6 {
+  width: 40vw;
+  height: 40vw;
+  padding: 10% 10%;
+  background-color: #FEE5E1;
+}
+section.portfolio .project4 .small, section.portfolio .project5 .small, section.portfolio .project6 .small {
+  font-size: 2.5vw;
+}
+section.portfolio .project4 .name, section.portfolio .project5 .name, section.portfolio .project6 .name {
+  font-size: 3.5vw;
+  color: #033495;
+}
+section.portfolio .project4 img, section.portfolio .project5 img, section.portfolio .project6 img {
+  display: none;
+}
+@media (min-width: 600px) {
+  section.portfolio .project4, section.portfolio .project5, section.portfolio .project6 {
+    max-width: 360px;
+    max-height: 360px;
+    padding: 40px 60px;
+  }
+  section.portfolio .project4 .small, section.portfolio .project5 .small, section.portfolio .project6 .small {
+    font-size: 16px;
+  }
+  section.portfolio .project4 .name, section.portfolio .project5 .name, section.portfolio .project6 .name {
+    font-size: 20px;
+  }
+}
+section.portfolio .project4 {
+  top: 8%;
+  left: 5%;
+}
+section.portfolio .project5 {
+  bottom: 20%;
+  right: 45%;
+}
+@media (min-width: 600px) {
+  section.portfolio .project5 {
+    right: 60px;
+  }
+}
+section.portfolio .project6 {
+  bottom: 30%;
+  left: 65%;
+}
+@media (min-width: 600px) {
+  section.portfolio .project6 {
+    right: -48px;
+  }
+}
 
 section.contact {
   position: relative;
@@ -705,12 +835,14 @@ section.contact .title {
   margin-bottom: 40px;
 }
 section.contact .info-circle {
-  width: 106vw;
-  height: 106vw;
+  margin: 0 auto;
+  margin-top: 20vw;
+  width: 70vw;
+  height: 70vw;
   padding: 15%;
   border-radius: 50%;
-  margin-bottom: -10vw;
-  transform: translateX(-2%);
+  opacity: 0;
+  transition: opacity 1s ease, transform 1s ease;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -718,18 +850,18 @@ section.contact .info-circle {
 }
 section.contact .info-circle form input, section.contact .info-circle form textarea {
   width: 100%;
-  padding-bottom: 1.5vw;
-  margin-bottom: 3vw;
+  padding-bottom: 1vw;
+  margin-bottom: 2vw;
   border: 0;
   border-bottom: 1px solid #FEE5E1;
-  font-size: 4vw;
+  font-size: 2vw;
   color: #FEE5E1;
   background: transparent;
 }
 section.contact .info-circle form .submit {
   width: 60%;
   display: block;
-  margin: 5vw auto 0;
+  margin: 3vw auto 0;
   padding: 4px 32px;
   border-radius: 32px;
   border: 1px solid #FEE5E1;
@@ -741,22 +873,35 @@ section.contact .info-circle form .submit:hover {
 }
 @media (min-width: 1024px) {
   section.contact .info-circle {
-    width: 80vw;
-    height: 80vw;
-    max-width: 856px;
-    max-height: 856px;
-    margin: 0 auto;
+    max-width: 720px;
+    max-height: 720px;
+    margin-top: 240px;
     padding: 200px 150px;
-    margin-bottom: 0;
-    transform: translateX(0%);
   }
   section.contact .info-circle form input, section.contact .info-circle form textarea {
     padding-bottom: 16px;
+    font-family: "Pretendard-Regular";
     font-size: 16px;
   }
   section.contact .info-circle form .submit {
     margin: 32px auto 0;
     padding: 12px 24px;
+  }
+}
+section.contact .active-contact {
+  margin-bottom: -20vw;
+  opacity: 1;
+  transform: translateY(-20%);
+}
+@media (min-width: 1024px) {
+  section.contact .active-contact {
+    transform: translateY(-200px);
+    margin-bottom: -200px;
+  }
+}
+@media (min-width: 1024px) {
+  section.contact {
+    height: 760px;
   }
 }
 

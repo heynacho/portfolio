@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        section.contact {
+            position: relative;
+            height: 100vh;
+            overflow: hidden;
+            padding-top: 48px;
+            background-color: #FEE5E1;
+        }
+        section.contact .title {
+            color: #033495;
+            margin-bottom: 40px;
+        }
+        section.contact .info-circle {
+            margin: 0 auto;
+            margin-top: 35vw;
+            width: 60vw;
+            height: 60vw;
+            padding: 15%;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #033495;
+            /* transition-delay: 1s; */
+            opacity: 1;
+            transition: opacity 0.5s ease, transform 0.5s ease 0.5s; /* opacity와 transform 모두에 대한 transition 설정 */
+            }
+        .active {
+            opacity: 0;
+            transform: translateY(-20%);
+        }
+        footer {
+            padding: 8px;
+            font-size: 12px;
+            text-align: center;
+            color: #AEE4FF;
+            background-color: #111111;
+        }
+    </style>
+    <title>원 스크롤</title>
+</head>
+<body>
+    <section id="portfolio" class="portfolio">
+        <div class="container">
+            <h2 class="title">Portfolio</h2>
+        </div><!-- container -->
+        <div class="sc3-bubble project1">
+            <div class="desc">
+                <p class="small">2020 서울여자대학교<br>졸업프로젝트</p>
+                <p class="name">내로라: 내일로 로드 라인</p>
+            </div><!-- desc -->
+            <img src="./images/project1.png" alt="project1">
+        </div><!-- project1 -->
+        <div class="sc3-bubble project2">
+            <div class="desc">
+                <p class="small">2024 방송정보국제교육원 개인 프로젝트</p>
+                <p class="name">클립서비스 웹 메인 페이지 리뉴얼</p>
+            </div><!-- desc -->
+            <img src="" alt="2">
+        </div><!-- project2 -->
+        <div class="sc3-bubble project3">
+            <div class="desc">
+                <p class="small">2024 방송정보국제교육원 팀 프로젝트</p>
+                <p class="name">궁중문화축전 반응형 웹페이지 리뉴얼</p>
+            </div><!-- desc -->
+            <img src="" alt="3">
+        </div><!-- project3 -->
+    </section><!-- portfolio -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="title">Contact</h2>
+        </div><!-- container -->
+        <div class="info-circle">
+            <form action="#" method="post">
+                <div class="info">
+                    <input type="text" name="name" class="name" value="Name">
+                    <input type="tel" name="tel" class="tel" value="Tel">
+                    <input type="email" name="email" class="email" value="E-mail">
+                    <textarea id="message" rows="3" name="message" class="message">Message</textarea>
+                </div>
+                <input type="submit" class="submit" value="SUBMIT">
+            </form>
+        </div><!-- info-circle -->
+        <script>
+            document.addEventListener("DOMContentLoaded", function() {
+                const contactSection = document.getElementById('contact');
+                const infoCircle = contactSection.querySelector('.info-circle');
+                const contactRect = contactSection.getBoundingClientRect();
+                const contactSectionTop = contactRect.top + window.scrollY;
+
+                console.log(contactSectionTop);
+
+                window.addEventListener('scroll', function() {
+                    const scrollPosition = window.scrollY;
+                    console.log('Scroll Position:', scrollPosition);
+
+                    if (scrollPosition >= contactSectionTop) {
+                        infoCircle.classList.add('active');
+                    } else {
+                        infoCircle.classList.remove('active');
+                    }
+                });
+            });
+        </script>
+    </section>
+    <footer>
+        <div class="bottomline">&copy; 2024. heynacho All rights reserved.</div>
+    </footer>
+</body>
+</html>

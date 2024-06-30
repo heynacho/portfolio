@@ -99,7 +99,7 @@
                     </div><!-- info -->
                 </div><!-- sc2-flex-wrap -->
                 <div class="img-txt">
-                    <div class="img"><img src="#" alt="(image)"></div>
+                    <!-- <div class="img"><img src="#" alt="(image)"></div> -->
                     <ul class="txt">
                         <li class="profile">
                             <div class="sub-title">PROFILE</div>
@@ -120,6 +120,15 @@
                             </div>
                         </li>
                         <li>
+                            <div class="sub-title">WORK</div>
+                            <div class="content">
+                                💼  2023.01 - 2024.01  더페이지미디어 (마케팅팀/매니저) <br>
+                                💼  2021.03 - 2022.12  영등포구청 (홍보미디어과/사원) <br>
+                                💼  2020.07 - 2020.08  SOLT (크리에이티브팀/인턴) <br>
+                                💼  2020.01 - 2020.02  후케어스 (디자인팀/인턴)
+                            </div>
+                        </li>
+                        <li>
                             <div class="sub-title">CERTIFICATE</div>
                             <div class="content">
                                 📜  컴퓨터그래픽스 운용기능사 자격증
@@ -132,6 +141,7 @@
                     </ul>
                 </div><!-- img-txt -->
             </div><!-- container -->
+            <div id="aboutmeBottom" style="height: 1px;"></div>
         </section><!-- about-me -->
 
         <section id="skill" class="skill">
@@ -139,52 +149,48 @@
                 <div class="sc3-flex-wrap">
                     <h2 class="title">Skill</h2>
                     <div class="sub-menu">
-                        <div class="menu1 selected-skill-menu">#DESIGN</div>
-                        <div class="menu2">#PUBLISHING</div>
+                        <div class="menu1 selected-skill-menu" onclick="setChange(0, event)">#DESIGN</div>
+                        <div class="menu2" onclick="setChange(1, event)">#PUBLISHING</div>
                     </div><!-- sub-menu -->
                 </div><!-- sc3-flex-wrap -->
-                <!-- <div class="sub-menu pc">
-                    <div class="menu1 selected-skill-menu">#DESIGN</div>
-                    <div class="menu2">#PUBLISHING</div>
-                </div>sub-menu pc -->
 
-                <ul class="menu1-content">
-                    <li class="ps">
+                <ul class="menu1-content  menu-show">
+                    <li class="skill-circle ps">
                         <div class="prog-title">
                             <img src="./images/ps.png" alt="ps logo" />
                             <p class="prog">Adobe<br>Photoshop</p>
                         </div>
                         98%
                     </li>
-                    <li class="ai">
+                    <li class="skill-circle ai">
                         <div class="prog-title">
                             <img src="./images/ai.png" alt="ai logo" />
                             <p class="prog">Adobe<br>Illustrator</p>
                         </div>
                         98%
                     </li>
-                    <li class="pr">
+                    <li class="skill-circle pr">
                         <div class="prog-title">
                             <img src="./images/pr.png" alt="pr logo" />
                             <p class="prog">Adobe<br>Premiere Pro</p>
                         </div>
                         80%
                     </li>
-                    <li class="ae">
+                    <li class="skill-circle ae">
                         <div class="prog-title">
                             <img src="./images/ae.png" alt="ae logo" />
                             <p class="prog">Adobe<br>After Effect</p>
                         </div>
                         80%
                     </li>
-                    <li class="xd">
+                    <li class="skill-circle xd">
                         <div class="prog-title">
                             <img src="./images/xd.png" alt="xd logo" />
                             <p class="prog">Adobe<br>XD</p>
                         </div>
                         70%
                     </li>
-                    <li class="fg">
+                    <li class="skill-circle fg">
                         <div class="prog-title">
                             <img src="./images/figma.png" alt="fg logo" />
                             <p class="prog">Figma</p>
@@ -194,33 +200,117 @@
                 </ul><!-- menu1-content -->
     
                 <ul class="menu2-content">
-                    <li class="html">
-                        <p class="prog">HTML</p>
-                        <p class="num">90%</p>
+                    <li class="skill-circle html">
+                        <div class="prog-title">
+                            <img src="./images/figma.png" alt="fg logo" />
+                            <p class="prog">HTML</p>
+                        </div>
+                        90%
                     </li>
-                    <li class="css">
-                        <p class="prog">CSS</p>
-                        <p class="num">90%</p>
+                    <li class="skill-circle css">
+                        <div class="prog-title">
+                            <img src="./images/figma.png" alt="fg logo" />
+                            <p class="prog">CSS</p>
+                        </div>
+                        90%
                     </li>
-                    <li class="js">
-                        <p class="prog">JavaScript</p>
-                        <p class="num">50%</p>
+                    <li class="skill-circle js">
+                        <div class="prog-title">
+                            <img src="./images/figma.png" alt="fg logo" />
+                            <p class="prog">Java Script</p>
+                        </div>
+                        50%
                     </li>
-                    <li class="jq">
-                        <p class="prog">jQuery</p>
-                        <p class="num">50%</p>
+                    <li class="skill-circle jq">
+                        <div class="prog-title">
+                            <img src="./images/figma.png" alt="fg logo" />
+                            <p class="prog">jQuery</p>
+                        </div>
+                        50%
                     </li>
-                    <li class="git">
-                        <p class="prog">Git Hub</p>
-                        <p class="num">50%</p>
+                    <li class="skill-circle git">
+                        <div class="prog-title">
+                            <img src="./images/figma.png" alt="fg logo" />
+                            <p class="prog">Git hub</p>
+                        </div>
+                        50%
                     </li>
-                    <li class="sass">
-                        <p class="prog">SASS</p>
-                        <p class="num">50%</p>
+                    <li class="skill-circle sass">
+                        <div class="prog-title">
+                            <img src="./images/figma.png" alt="fg logo" />
+                            <p class="prog">SASS</p>
+                        </div>
+                        70%
                     </li>
                 </ul><!-- menu2-content -->
             </div><!-- container -->
 
+            <script>
+                document.addEventListener("DOMContentLoaded", function() {
+                    const skillSection = document.getElementById('skill');
+                    const aboutmeBottom = document.getElementById('aboutmeBottom');
+                    const skillCircles = document.querySelectorAll('.skill-circle');
+            
+                    const skillRect = skillSection.getBoundingClientRect();
+                    const skillSectionTop = skillRect.top + window.scrollY;
+            
+                    window.addEventListener('scroll', function() {
+                        const scrollPosition = window.scrollY;
+                        const aboutmeBottomRect = aboutmeBottom.getBoundingClientRect();
+                        const aboutmeBottomOffset = aboutmeBottomRect.top + window.scrollY;
+            
+                        if (scrollPosition + 100 >= aboutmeBottomOffset) {
+                            skillCircles.forEach((circle, index) => {
+                                setTimeout(() => {
+                                    circle.classList.add('active-skill');
+                                }, index * 100); // 0.1초씩 시간차를 두어 순차적으로 추가
+                            });
+                        } else {
+                            skillCircles.forEach(circle => circle.classList.remove('active-skill'));
+                        }
+                    });
+
+                    const menu1 = document.querySelector('.menu1');
+                    const menu2 = document.querySelector('.menu2');
+                    const menu1Content = document.querySelector('.menu1-content');
+                    const menu2Content = document.querySelector('.menu2-content');
+                    
+                    // .menu1 클릭 시 이벤트 처리
+                    menu1.addEventListener('click', function() {
+                        // .menu1에 선택 클래스 추가, .menu2에서 선택 클래스 제거
+                        menu1.classList.add('selected-skill-menu');
+                        menu2.classList.remove('selected-skill-menu');
+                        
+                        // .menu1-content에 메뉴 표시 클래스 추가, .menu2-content에서 제거
+                        menu1Content.classList.add('menu-show');
+                        menu2Content.classList.remove('menu-show');
+
+                        // 페이드 인 애니메이션을 위해 setTimeout 사용
+                        // setTimeout(() => {
+                        //     menu1Content.style.opacity = '1';
+                        //     menu1Content.style.visibility = 'visible';
+                        // }, 50); // 0.05초 후에 실행    
+                    });
+                    
+                    // .menu2 클릭 시 이벤트 처리
+                    menu2.addEventListener('click', function() {
+                        // .menu2에 선택 클래스 추가, .menu1에서 선택 클래스 제거
+                        menu2.classList.add('selected-skill-menu');
+                        menu1.classList.remove('selected-skill-menu');
+                        
+                        // .menu2-content에 메뉴 표시 클래스 추가, .menu1-content에서 제거
+                        menu2Content.classList.add('menu-show');
+                        menu1Content.classList.remove('menu-show');
+
+                        // 페이드 인 애니메이션을 위해 setTimeout 사용
+                        // setTimeout(() => {
+                        //     menu2Content.style.opacity = '1';
+                        //     menu2Content.style.visibility = 'visible';
+                        // }, 50); // 0.05초 후에 실행
+                    });
+                });
+                
+            </script>
         </section><!-- skill -->
 
         <section id="portfolio" class="portfolio">
@@ -243,6 +333,10 @@
                 <div class="desc">
                     <p class="small">2024 방송정보국제교육원 개인 프로젝트</p>
                     <p class="name">클립서비스 웹 메인 페이지 리뉴얼</p>
+                    <div class="btn-box">
+                        <button class="pf-button web">Website <img src="./images/right-arrow-white.png" alt=""></button>
+                        <button class="pf-button figma">Figma <img src="./images/right-arrow-white.png" alt=""></button>
+                    </div>
                     <!-- <div class="web">More</div> -->
                 </div><!-- desc -->
                 <img src="" alt="2">
@@ -253,9 +347,42 @@
                     <p class="small">2024 방송정보국제교육원 팀 프로젝트</p>
                     <p class="name">궁중문화축전 반응형 웹페이지 리뉴얼</p>
                     <!-- <div class="web">More</div> -->
+                    <div class="btn-box">
+                        <button class="pf-button web">Website <img src="./images/right-arrow-white.png" alt=""></button>
+                        <button class="pf-button figma">Figma <img src="./images/right-arrow-white.png" alt=""></button>
+                    </div>
                 </div><!-- desc -->
                 <img src="" alt="3">
             </div><!-- project3 -->
+
+            <div class="sc3-bubble project4">
+                <div class="desc">
+                    <p class="small">인포그래픽 영상 제작</p>
+                    <p class="name">반려동물 천만시대, 그 이름 뒤의 그림자</p>
+                    <!-- <div class="web">More</div> -->
+                </div><!-- desc -->
+                <img src="" alt="4">
+            </div><!-- project4 -->
+
+            <div class="sc3-bubble project5">
+                <div class="desc">
+                    <p class="small">모션그래픽 광고 영상 제작</p>
+                    <p class="name">점심 메뉴 고민될 땐, WE EAT</p>
+                    <!-- <div class="web">More</div> -->
+                </div><!-- desc -->
+                <img src="" alt="5">
+            </div><!-- project5 -->
+
+            <div class="sc3-bubble project6">
+                <div class="desc">
+                    <p class="small">대학로 문화 활성화 캠페인</p>
+                    <p class="name">경성대·부경대 노래하는 옥상</p>
+                    <!-- <div class="web">More</div> -->
+                </div><!-- desc -->
+                <img src="" alt="6">
+            </div><!-- project6 -->
+            
+            <div id="portfolioBottom" style="height: 1px;"></div>
         </section><!-- portfolio -->
 
         <section  id="contact" class="contact">
@@ -273,11 +400,51 @@
                     <input type="submit" class="submit" value="SUBMIT">
                 </form>
             </div><!-- info-circle -->
+
+            <script>
+                document.addEventListener("DOMContentLoaded", function() {
+                    const contactSection = document.getElementById('contact');
+                    const portfolioBottom = document.getElementById('portfolioBottom');
+                    const infoCircle = contactSection.querySelector('.info-circle');
+
+                    const contactRect = contactSection.getBoundingClientRect();
+                    const contactSectionTop = contactRect.top + window.scrollY;
+
+                    console.log(contactSectionTop);
+                    // console.log(portfolioBottomOffset);
+
+                    window.addEventListener('scroll', function() {
+                        const scrollPosition = window.scrollY;
+                        const portfolioBottomRect = portfolioBottom.getBoundingClientRect();
+                        const portfolioBottomOffset = portfolioBottomRect.top + window.scrollY;
+
+                        console.log('Scroll Position:', scrollPosition);
+
+                        // portfolio 섹션의 맨 아래 요소가 뷰포트 안에 들어오면 active 클래스 추가
+                        if (scrollPosition >= portfolioBottomOffset) {
+                            infoCircle.classList.add('active-contact');
+                        } else {
+                            infoCircle.classList.remove('active-contact');
+                        }
+                    });
+    
+                    // window.addEventListener('scroll', function() {
+                    //     const scrollPosition = window.scrollY;
+                    //     console.log('Scroll Position:', scrollPosition);
+    
+                    //     if (scrollPosition >= contactSectionTop) {
+                    //         infoCircle.classList.add('active');
+                    //     } else {
+                    //         infoCircle.classList.remove('active');
+                    //     }
+                    // });
+                });
+            </script>
         </section>
     </main>
 
-    <!-- <footer>
+    <footer>
         <div class="bottomline"> &copy; 2024. heynacho All rights reserved.</div>
-    </footer> -->
+    </footer>
 </body>
 </html>

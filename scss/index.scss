@@ -208,7 +208,7 @@ section.intro {
 
     .greeting {
         height: 15vh;
-        margin: 160px 0 64px;
+        margin: 120px 0 64px;
 
         p {
             margin-bottom: -8px;
@@ -667,11 +667,11 @@ section.skill {
     .menu-show {
         display: grid;
         opacity: 1;
-
-        // li {
-        //     animation: rotate 0.5s ease-out forwards;
-        // }
     }
+
+    // .menu-show > li {
+    //     animation: rotate 0.5s ease-out forwards;
+    // }
 
     @keyframes rotate {
         from {

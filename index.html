@@ -14,10 +14,10 @@
     <title>Portfolio</title>
 </head>
 <body>
-    <header>
+    <header id="header">
         <div class="container">
             <div class="logo">
-                <h1 id="logo"><img src="./images/logo.png" alt="logo"></h1>
+                <h1 id="logo"><a href="./index.html"><img src="./images/logo.png" alt="logo"></a></h1>
             </div>
 
             <nav class="main-menu">
@@ -55,10 +55,115 @@
                 </ul>
             </nav>
         </div><!-- container -->
+
+        <script>
+            var header = document.getElementById('header');
+        
+            // 스크롤 이벤트 처리
+            window.addEventListener('scroll', function() {
+                if (window.scrollY > 100) {
+                    // header.style.backgroundColor = '#fffffee';
+                    header.classList.add('header-hide');
+                } else {
+                    // header.style.backgroundColor = 'none';
+                    header.classList.remove('header-hide');
+                }
+            });
+        
+            // 마우스 이벤트 처리
+            header.addEventListener('mousemove', function(event) {
+                var mouseY = event.clientY;
+                console.log('Mouse Y:', mouseY);
+
+                if (mouseY < 40) {
+                    header.classList.add('header-scroll');
+                } else {
+                    header.classList.remove('header-scroll');
+                }
+            });
+        
+            // 마우스가 헤더에 들어왔을 때
+            header.addEventListener('mouseenter', function() {
+                header.classList.add('header-scroll');
+            });
+        
+            // 마우스가 헤더에서 나갔을 때
+            header.addEventListener('mouseleave', function() {
+                header.classList.remove('header-scroll');
+            });
+            
+            // ul 요소
+            var gnb = document.querySelector('.gnb');
+            // ul 요소 안의 각 li 요소
+            var menuItems = gnb.querySelectorAll('li');
+
+            // 메뉴 클릭하면 클래스 이동   
+
+            // 각 li 요소에 클릭 이벤트 리스너 추가
+            menuItems.forEach(function(menuItem) {
+                menuItem.addEventListener('click', function() {
+                    // 이전에 선택된 li 요소의 클래스 제거
+                    menuItems.forEach(function(item) {
+                        item.classList.remove('selected-menu');
+                    });
+                    // 클릭된 li 요소에만 selected-menu 클래스 추가
+                    menuItem.classList.add('selected-menu');
+                });
+            });
+            
+            document.addEventListener('DOMContentLoaded', function() {
+
+                // body를 기준으로 각 섹션의 offsetTop 값 계산
+                var bodyScrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
+
+                var introSection = 0; // intro 섹션은 body 상단부터의 거리로 0으로 설정
+
+                // 다른 섹션들은 offsetTop 값을 body 기준으로 계산
+                var aboutMeSection = document.getElementById('aboutTop').getBoundingClientRect().top + bodyScrollTop;
+                var skillSection = document.getElementById('skillTop').getBoundingClientRect().top + bodyScrollTop;
+                var portfolioSection = document.getElementById('portfolioTop').getBoundingClientRect().top + bodyScrollTop;
+                var contactSection = document.getElementById('contactTop').getBoundingClientRect().top + bodyScrollTop;
+    
+                console.log(introSection, aboutMeSection, skillSection, portfolioSection, contactSection);
+
+                // 스크롤 이벤트 리스너 추가
+                window.addEventListener('scroll', function() {
+                    var scrollPosition = window.scrollY || window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
+    
+                    // 스크롤 위치에 따라 해당 섹션 클래스 추가
+                    if (scrollPosition >= introSection && scrollPosition < aboutMeSection) {
+                        activateMenuItem(0); // INTRO
+                    } else if (scrollPosition >= aboutMeSection && scrollPosition < skillSection) {
+                        activateMenuItem(1); // ABOUT ME
+                    } else if (scrollPosition >= skillSection && scrollPosition < portfolioSection) {
+                        activateMenuItem(2); // SKILL
+                    } else if (scrollPosition >= portfolioSection && scrollPosition < contactSection) {
+                        activateMenuItem(3); // PORTFOLIO
+                    } else if (scrollPosition >= contactSection) {
+                        activateMenuItem(4); // CONTACT
+                    }
+                });
+
+                var gnb = document.querySelector('.gnb');
+                var menuItems2 = gnb.querySelectorAll('li');
+    
+                // 각 메뉴 아이템을 활성화하는 함수 정의
+                function activateMenuItem(index) {
+                    // 모든 메뉴 아이템에서 selected-menu 클래스 제거
+                    menuItems2.forEach(function(item) {
+                        item.classList.remove('selected-menu');
+                    });
+    
+                    // index에 해당하는 메뉴 아이템에 selected-menu 클래스 추가
+                    menuItems2[index].classList.add('selected-menu');
+                };
+            });
+        </script>
     </header>
 
     <main>
         <section id="intro" class="intro">
+            <div id="introTop" style="height: 1px;"></div>
             <div class="sc1-circle-deepblue">&nbsp;</div>
             <div class="sc1-circle-beige">&nbsp;</div>
             <div class="container">
@@ -88,8 +193,9 @@
             <div class="sc2-circle-midblue">&nbsp;</div>
             <div class="sc2-circle-lightblue">&nbsp;</div>
             <div class="container">
+                <div id="aboutTop" style="height: 1px;"></div>
                 <div class="sc2-flex-wrap">
-                    <h2 class="title">About ME</h2>
+                    <h2 id="aboutTitle" class="title">About ME</h2>
                     <div class="info">
                         <p class="name">조한나 <span class="light">CHO HAN NA</span></p>    
                         <div class="hashtag">
@@ -145,6 +251,7 @@
         </section><!-- about-me -->
 
         <section id="skill" class="skill">
+            <div id="skillTop" style="height: 1px;"></div>
             <div class="container">
                 <div class="sc3-flex-wrap">
                     <h2 class="title">Skill</h2>
@@ -154,93 +261,93 @@
                     </div><!-- sub-menu -->
                 </div><!-- sc3-flex-wrap -->
 
-                <ul class="menu1-content  menu-show">
+                <ul class="menu1-content menu-show">
                     <li class="skill-circle ps">
                         <div class="prog-title">
                             <img src="./images/ps.png" alt="ps logo" />
                             <p class="prog">Adobe<br>Photoshop</p>
                         </div>
-                        98%
+                        <span class="count">98</span>%
                     </li>
                     <li class="skill-circle ai">
                         <div class="prog-title">
                             <img src="./images/ai.png" alt="ai logo" />
                             <p class="prog">Adobe<br>Illustrator</p>
                         </div>
-                        98%
+                        <span class="count">98</span>%
                     </li>
                     <li class="skill-circle pr">
                         <div class="prog-title">
                             <img src="./images/pr.png" alt="pr logo" />
                             <p class="prog">Adobe<br>Premiere Pro</p>
                         </div>
-                        80%
+                        <span class="count">80</span>%
                     </li>
                     <li class="skill-circle ae">
                         <div class="prog-title">
                             <img src="./images/ae.png" alt="ae logo" />
                             <p class="prog">Adobe<br>After Effect</p>
                         </div>
-                        80%
+                        <span class="count">80</span>%
                     </li>
                     <li class="skill-circle xd">
                         <div class="prog-title">
                             <img src="./images/xd.png" alt="xd logo" />
                             <p class="prog">Adobe<br>XD</p>
                         </div>
-                        70%
+                        <span class="count">70</span>%
                     </li>
                     <li class="skill-circle fg">
                         <div class="prog-title">
                             <img src="./images/figma.png" alt="fg logo" />
                             <p class="prog">Figma</p>
                         </div>
-                        90%
+                        <span class="count">90</span>%
                     </li>
                 </ul><!-- menu1-content -->
     
                 <ul class="menu2-content">
                     <li class="skill-circle html">
                         <div class="prog-title">
-                            <img src="./images/figma.png" alt="fg logo" />
+                            <img src="./images/html.png" alt="html logo" />
                             <p class="prog">HTML</p>
                         </div>
-                        90%
+                        <span class="count">90</span>%
                     </li>
                     <li class="skill-circle css">
                         <div class="prog-title">
-                            <img src="./images/figma.png" alt="fg logo" />
+                            <img src="./images/css.png" alt="css logo" />
                             <p class="prog">CSS</p>
                         </div>
-                        90%
+                        <span class="count">90</span>%
                     </li>
                     <li class="skill-circle js">
                         <div class="prog-title">
-                            <img src="./images/figma.png" alt="fg logo" />
+                            <img src="./images/js.png" alt="js logo" />
                             <p class="prog">Java Script</p>
                         </div>
-                        50%
-                    </li>
-                    <li class="skill-circle jq">
-                        <div class="prog-title">
-                            <img src="./images/figma.png" alt="fg logo" />
-                            <p class="prog">jQuery</p>
-                        </div>
-                        50%
-                    </li>
-                    <li class="skill-circle git">
-                        <div class="prog-title">
-                            <img src="./images/figma.png" alt="fg logo" />
-                            <p class="prog">Git hub</p>
-                        </div>
-                        50%
+                        <span class="count">50</span>%
                     </li>
                     <li class="skill-circle sass">
                         <div class="prog-title">
-                            <img src="./images/figma.png" alt="fg logo" />
+                            <img src="./images/sass.png" alt="sass logo" />
                             <p class="prog">SASS</p>
                         </div>
-                        70%
+                        <span class="count">70</span>%
+                    </li>
+                    <li class="skill-circle jq">
+                        <div class="prog-title">
+                            <img src="./images/jqu.png" alt="jq logo" />
+                            <p class="prog">jQuery</p>
+                        </div>
+                        <span class="count">50</span>%
+                    </li>
+                    <li class="skill-circle git">
+                        <div class="prog-title">
+                            <img src="./images/git.png" alt="git logo" />
+                            <p class="prog">Git Hub</p>
+                        </div>
+                        <span class="count">70</span>%
                     </li>
                 </ul><!-- menu2-content -->
             </div><!-- container -->
@@ -253,7 +360,21 @@
             
                     const skillRect = skillSection.getBoundingClientRect();
                     const skillSectionTop = skillRect.top + window.scrollY;
+
+                    // 숫자 카운트
+                    $('.count').each(function () {
+                        $(this).prop('Counter',0).animate({
+                            Counter: $(this).text()
+                        }, {
+                            duration: 1000,
+                            easing: 'swing',
+                            step: function (now) {
+                                $(this).text(Math.ceil(now));
+                            }
+                        });
+                    });
             
+                    // 스크롤 이벤트
                     window.addEventListener('scroll', function() {
                         const scrollPosition = window.scrollY;
                         const aboutmeBottomRect = aboutmeBottom.getBoundingClientRect();
@@ -275,38 +396,22 @@
                     const menu1Content = document.querySelector('.menu1-content');
                     const menu2Content = document.querySelector('.menu2-content');
                     
-                    // .menu1 클릭 시 이벤트 처리
+                    // .menu1 클릭 이벤트
                     menu1.addEventListener('click', function() {
-                        // .menu1에 선택 클래스 추가, .menu2에서 선택 클래스 제거
                         menu1.classList.add('selected-skill-menu');
                         menu2.classList.remove('selected-skill-menu');
                         
-                        // .menu1-content에 메뉴 표시 클래스 추가, .menu2-content에서 제거
                         menu1Content.classList.add('menu-show');
-                        menu2Content.classList.remove('menu-show');
-
-                        // 페이드 인 애니메이션을 위해 setTimeout 사용
-                        // setTimeout(() => {
-                        //     menu1Content.style.opacity = '1';
-                        //     menu1Content.style.visibility = 'visible';
-                        // }, 50); // 0.05초 후에 실행    
+                        menu2Content.classList.remove('menu-show');   
                     });
                     
-                    // .menu2 클릭 시 이벤트 처리
+                    // .menu2 클릭 이벤트
                     menu2.addEventListener('click', function() {
-                        // .menu2에 선택 클래스 추가, .menu1에서 선택 클래스 제거
                         menu2.classList.add('selected-skill-menu');
                         menu1.classList.remove('selected-skill-menu');
                         
-                        // .menu2-content에 메뉴 표시 클래스 추가, .menu1-content에서 제거
                         menu2Content.classList.add('menu-show');
                         menu1Content.classList.remove('menu-show');
-
-                        // 페이드 인 애니메이션을 위해 setTimeout 사용
-                        // setTimeout(() => {
-                        //     menu2Content.style.opacity = '1';
-                        //     menu2Content.style.visibility = 'visible';
-                        // }, 50); // 0.05초 후에 실행
                     });
                 });
                 
@@ -314,6 +419,7 @@
         </section><!-- skill -->
 
         <section id="portfolio" class="portfolio">
+            <div id="portfolioTop" style="height: 1px;"></div>
             <div class="container">
                 <h2 class="title">Portfolio</h2>
             </div><!-- container -->
@@ -386,17 +492,26 @@
         </section><!-- portfolio -->
 
         <section  id="contact" class="contact">
+            <div id="contactTop" style="height: 1px;"></div>
             <div class="container">
                 <h2 class="title">Contact</h2>
             </div><!-- container -->
             <div class="info-circle">
                 <form action="#" method="post">
-                    <div class="info">
-                        <input type="text" name="name" class="name" value="Name">
-                        <input type="tel" name="tel" class="tel" value="Tel">
-                        <input type="email" name="email" class="email" value="E-mail">
-                        <textarea id="message" rows="3" name="message" class="message" value="Message">Message</textarea>
-                    </div>
+                    <ul class="info">
+                        <li>
+                            <label for="name">Name</label> <input type="text" name="name" class="name">
+                        </li>
+                        <li>
+                            <label for="tel">Tel</label> <input type="tel" name="tel" class="tel">
+                        </li>
+                        <li>
+                            <label for="email">Email</label> <input type="email" name="email" class="email">
+                        </li>
+                        <li>
+                            <label for="message">Memo</label> <textarea id="message" rows="3" name="message" class="message">메모 남겨주시면 빠르게 회신드리겠습니다. 감사합니다.</textarea>
+                        </li>
+                    </ul>
                     <input type="submit" class="submit" value="SUBMIT">
                 </form>
             </div><!-- info-circle -->
@@ -428,16 +543,13 @@
                         }
                     });
     
-                    // window.addEventListener('scroll', function() {
-                    //     const scrollPosition = window.scrollY;
-                    //     console.log('Scroll Position:', scrollPosition);
-    
-                    //     if (scrollPosition >= contactSectionTop) {
-                    //         infoCircle.classList.add('active');
-                    //     } else {
-                    //         infoCircle.classList.remove('active');
-                    //     }
-                    // });
+                    // textarea 
+                    const textarea = document.getElementById('message');
+
+                    // 클릭 이벤트 리스너
+                    textarea.addEventListener('click', function() {
+                        textarea.value = '';
+                    });
                 });
             </script>
         </section>

@@ -58,6 +58,8 @@
 
 html {
   overflow-y: scroll;
+  scroll-behavior: smooth;
+  scroll-padding-top: 120px; /* 헤더의 높이에 따라 조절 */
 }
 
 body {
@@ -128,7 +130,22 @@ body .sc1-circle-deepblue {
   top: -3%;
   right: -16%;
   z-index: -1;
-  background-color: #033495;
+  background-color: #6A9CFD;
+}
+@media (min-width: 1024px) {
+  body .sc1-circle-deepblue {
+    width: 120vw;
+    height: 120vw;
+    max-width: 800px;
+    max-height: 800px;
+    top: -7%;
+    right: -25vw;
+  }
+}
+@media (min-width: 1300px) {
+  body .sc1-circle-deepblue {
+    right: -6vw;
+  }
 }
 body .sc1-circle-beige {
   width: 30vw;
@@ -140,6 +157,21 @@ body .sc1-circle-beige {
   z-index: -2;
   background-color: #FEE5E1;
 }
+@media (min-width: 1024px) {
+  body .sc1-circle-beige {
+    width: 60vw;
+    height: 60vw;
+    max-width: 400px;
+    max-height: 400px;
+    top: 5.5%;
+    left: -15vw;
+  }
+}
+@media (min-width: 1300px) {
+  body .sc1-circle-beige {
+    left: -2vw;
+  }
+}
 
 .container {
   width: 100%;
@@ -148,10 +180,16 @@ body .sc1-circle-beige {
   padding: 0 12px;
 }
 
+header {
+  position: fixed;
+  width: 100%;
+  padding: 12px 0;
+  z-index: 1000;
+  background-color: rgba(255, 255, 255, 0);
+}
 header .container {
   display: flex;
   justify-content: space-between;
-  margin-top: 24px;
 }
 header .container .logo {
   width: 20%;
@@ -179,16 +217,19 @@ header .container .gnb li .menu-circle {
   height: 4px;
   border-radius: 50%;
   cursor: pointer;
-  background-color: #FEE5E1;
+  background-color: #AEE4FF;
 }
 header .container .gnb li .menu-txt {
   margin: -4px 16px 0 8px;
   font-size: 0;
 }
+header .container .gnb li:hover .menu-circle {
+  background-color: #033495;
+}
 header .container .gnb li:hover .menu-txt {
   margin: -4px 16px 0 8px;
   font-size: 14px;
-  color: #FEE5E1;
+  color: #033495;
 }
 header .container .gnb .selected-menu .menu-circle {
   background-color: #FFB8D0;
@@ -204,27 +245,38 @@ header .container .gnb .selected-menu .menu-txt {
   }
   header .container .gnb li .menu-txt {
     font-size: 16px;
-    color: #FEE5E1;
+    color: #AEE4FF;
   }
   header .container .gnb li .menu-circle {
     width: 6px;
     height: 6px;
-    color: #FEE5E1;
+    color: #AEE4FF;
   }
   header .container .gnb li:hover {
     cursor: pointer;
   }
   header .container .gnb li:hover .menu-txt {
+    font-size: 16px;
     font-weight: bold;
-    color: #AEE4FF;
+    color: #033495;
   }
   header .container .gnb li:hover .menu-circle {
-    background-color: #AEE4FF;
+    background-color: #033495;
     opacity: 1;
   }
   header .container .gnb .selected-menu .menu-txt {
     font-size: 16px;
   }
+}
+
+.header-hide {
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.header-scroll {
+  opacity: 1;
+  background-color: #ffffff;
 }
 
 h2 {
@@ -242,7 +294,7 @@ section.intro {
 }
 section.intro .greeting {
   height: 15vh;
-  margin: 64px 0;
+  margin: 160px 0 64px;
 }
 section.intro .greeting p {
   margin-bottom: -8px;
@@ -426,6 +478,20 @@ section.about-me .sc2-circle-midblue {
   left: -40%;
   z-index: -1;
 }
+@media (min-width: 1024px) {
+  section.about-me .sc2-circle-midblue {
+    width: 60vw;
+    height: 60vw;
+    max-width: 800px;
+    max-height: 800px;
+    left: -20%;
+  }
+}
+@media (min-width: 1300px) {
+  section.about-me .sc2-circle-midblue {
+    left: -8vw;
+  }
+}
 section.about-me .sc2-circle-lightblue {
   width: 70vw;
   height: 70vw;
@@ -437,6 +503,18 @@ section.about-me .sc2-circle-lightblue {
   top: calc(50% + 7vh);
   right: -15%;
   z-index: -1;
+}
+@media (min-width: 1024px) {
+  section.about-me .sc2-circle-lightblue {
+    max-width: 480px;
+    max-height: 480px;
+    right: -8%;
+  }
+}
+@media (min-width: 1300px) {
+  section.about-me .sc2-circle-lightblue {
+    right: 3%;
+  }
 }
 section.about-me .sc2-flex-wrap {
   display: flex;
@@ -507,6 +585,11 @@ section.about-me .img-txt .txt .content-pink {
   color: #FFB8D0;
   margin-bottom: 0;
 }
+@media (min-width: 1024px) {
+  section.about-me .img-txt .txt {
+    margin-left: 64px;
+  }
+}
 
 section.skill {
   background-color: #033495;
@@ -519,7 +602,6 @@ section.skill .sc3-flex-wrap {
 }
 section.skill .sc3-flex-wrap .sub-menu {
   display: flex;
-  cursor: pointer;
 }
 section.skill .sc3-flex-wrap .sub-menu div {
   margin-left: 8px;
@@ -528,6 +610,7 @@ section.skill .sc3-flex-wrap .sub-menu div {
   border-radius: 16px;
   font-size: 14px;
   opacity: 0.5;
+  cursor: pointer;
 }
 section.skill .sc3-flex-wrap .sub-menu div:hover {
   opacity: 1;
@@ -551,6 +634,8 @@ section.skill ul {
   margin-top: 32px;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
+  opacity: 0;
+  transition: opacity 0.5s ease-out;
   display: none;
 }
 section.skill ul li {
@@ -586,6 +671,13 @@ section.skill ul li .prog-title .prog {
   text-align: left;
   color: #AEE4FF;
 }
+section.skill ul li:hover {
+  border: 3px solid #FFFFFF;
+  cursor: pointer;
+}
+section.skill ul li:hover .prog {
+  font-weight: bold;
+}
 section.skill ul .active-skill {
   opacity: 1;
   transform: translateY(0%) rotate(0deg); /* 회전 애니메이션 */
@@ -614,6 +706,17 @@ section.skill ul .active-skill {
 }
 section.skill .menu-show {
   display: grid;
+  opacity: 1;
+}
+@keyframes rotate {
+  from {
+    opacity: 0;
+    transform: translateY(5%) rotate(30deg);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0%) rotate(0deg);
+  }
 }
 @media (min-width: 1024px) {
   section.skill {
@@ -637,6 +740,7 @@ section.portfolio .sc3-bubble {
 }
 section.portfolio .sc3-bubble:hover {
   transform: scale(1.1);
+  transition: transform 0.5s;
 }
 section.portfolio .desc {
   position: relative;
@@ -678,7 +782,7 @@ section.portfolio .desc .btn-box button img {
   margin-top: 0.5vw;
 }
 section.portfolio .project1 {
-  top: 15vh;
+  top: 20vh;
   right: 3vh;
   width: 80vw;
   height: 80vw;
@@ -764,7 +868,7 @@ section.portfolio .project2 {
   }
 }
 section.portfolio .project3 {
-  bottom: 5%;
+  bottom: 3%;
   left: -5%;
 }
 @media (min-width: 600px) {
@@ -815,7 +919,8 @@ section.portfolio .project5 {
   }
 }
 section.portfolio .project6 {
-  bottom: 30%;
+  background-color: #AEE4FF;
+  bottom: 28%;
   left: 65%;
 }
 @media (min-width: 600px) {
@@ -837,9 +942,9 @@ section.contact .title {
 section.contact .info-circle {
   margin: 0 auto;
   margin-top: 20vw;
-  width: 70vw;
-  height: 70vw;
-  padding: 15%;
+  width: 80vw;
+  height: 80vw;
+  padding: 10%;
   border-radius: 50%;
   opacity: 0;
   transition: opacity 1s ease, transform 1s ease;
@@ -848,26 +953,41 @@ section.contact .info-circle {
   align-items: center;
   background-color: #033495;
 }
-section.contact .info-circle form input, section.contact .info-circle form textarea {
+section.contact .info-circle form {
+  margin-top: 32px;
+  width: 90%;
+}
+section.contact .info-circle form li {
+  display: flex;
+  justify-content: space-between;
   width: 100%;
+}
+section.contact .info-circle form label {
+  font-size: 2.5vw;
+  color: #FEE5E1;
+}
+section.contact .info-circle form input, section.contact .info-circle form textarea {
+  width: 70%;
   padding-bottom: 1vw;
-  margin-bottom: 2vw;
+  margin-bottom: 2.5vw;
   border: 0;
   border-bottom: 1px solid #FEE5E1;
-  font-size: 2vw;
+  font-size: 2.5vw;
   color: #FEE5E1;
   background: transparent;
 }
 section.contact .info-circle form .submit {
   width: 60%;
   display: block;
-  margin: 3vw auto 0;
+  margin: 5vw auto 0;
   padding: 4px 32px;
   border-radius: 32px;
-  border: 1px solid #FEE5E1;
+  border: 3px solid #FEE5E1;
+  font-size: 18px;
+  font-weight: bold;
 }
 section.contact .info-circle form .submit:hover {
-  border: 1px solid #FFFFFF;
+  border: 3px solid #FFFFFF;
   color: #FFFFFF;
   background-color: #AEE4FF;
 }
@@ -876,10 +996,18 @@ section.contact .info-circle form .submit:hover {
     max-width: 720px;
     max-height: 720px;
     margin-top: 240px;
-    padding: 200px 150px;
+    padding: 100px 120px;
+  }
+  section.contact .info-circle form {
+    margin-top: 0;
+  }
+  section.contact .info-circle form label {
+    font-size: 26px;
+    color: #FEE5E1;
   }
   section.contact .info-circle form input, section.contact .info-circle form textarea {
     padding-bottom: 16px;
+    margin-bottom: 24px;
     font-family: "Pretendard-Regular";
     font-size: 16px;
   }

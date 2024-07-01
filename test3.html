@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        html {
+            overflow-y: scroll;
+            scroll-behavior: smooth;
+            scroll-padding-top: 120px; /* 헤더의 높이에 따라 조절 */
+        }
+
+        a {
+            display: block;
+            color: black;
+            text-decoration: none;
+        }
+
+        header {
+            position: fixed;
+            width: 100%;
+            padding: 12px 0;
+            z-index: 1000;
+            background-color: rgba(255, 255, 255, 0);
+        }
+        header .container {
+            display: flex;
+            justify-content: space-between;
+        }
+        header .container .logo {
+            width: 20%;
+            max-width: 198px;
+        }
+        header .container .logo img {
+            width: 100%;
+            transform: translateY(50%);
+        }
+
+        header .container .gnb {
+            display: flex;
+        }
+        header .container .gnb li {
+            display: flex;
+            align-items: center;
+            margin-right: 8px;
+        }
+
+        header .container .gnb .selected-menu .menu-txt {
+            color: #FFB8D0;
+        }
+    </style>
+    <script>       
+            // 섹션 위치 계산
+            var introSection = document.getElementById('intro').offsetTop;
+            var aboutMeSection = document.getElementById('about-me').offsetTop;
+            var skillSection = document.getElementById('skill').offsetTop;
+            var portfolioSection = document.getElementById('portfolio').offsetTop;
+            var contactSection = document.getElementById('contact').offsetTop;
+
+            // 스크롤 이벤트 리스너 추가
+            window.addEventListener('scroll', function() {
+                var scrollPosition = window.scrollY;
+                
+                // 스크롤 위치에 따라 해당 섹션 클래스 추가
+                if (scrollPosition >= introSection && scrollPosition < aboutMeSection) {
+                    activateMenuItem(0); // INTRO
+                } else if (scrollPosition >= aboutMeSection && scrollPosition < skillSection) {
+                    activateMenuItem(1); // ABOUT ME
+                } else if (scrollPosition >= skillSection && scrollPosition < portfolioSection) {
+                    activateMenuItem(2); // SKILL
+                } else if (scrollPosition >= portfolioSection && scrollPosition < contactSection) {
+                    activateMenuItem(3); // PORTFOLIO
+                } else if (scrollPosition >= contactSection) {
+                    activateMenuItem(4); // CONTACT
+                }
+            });
+            
+            // 각 메뉴 아이템을 활성화하는 함수 정의
+            function activateMenuItem(index) {
+                // 모든 메뉴 아이템에서 selected-menu 클래스 제거
+                menuItems.forEach(function(item) {
+                    item.classList.remove('selected-menu');
+                });
+                
+                // index에 해당하는 메뉴 아이템에 selected-menu 클래스 추가
+                menuItems[index].classList.add('selected-menu');
+            }
+    </script>
+    <title>섹션 위치에 따라 메뉴 변화</title>
+</head>
+<body>
+    <header id="header">
+        <div class="container">
+            <div class="logo">
+                <h1 id="logo"><img src="./images/logo.png" alt="logo"></h1>
+            </div>
+
+            <nav class="main-menu">
+                <ul class="gnb">
+                    <li class="selected-menu">
+                        <a href="#intro">
+                            <div class="menu-circle"></div>
+                            <div class="menu-txt">INTRO</div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#about-me">
+                            <div class="menu-circle"></div>
+                            <div class="menu-txt">ABOUT ME</div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#skill">
+                            <div class="menu-circle"></div>
+                            <div class="menu-txt">SKILL</div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#portfolio">
+                            <div class="menu-circle"></div>
+                            <div class="menu-txt">PORTFOLIO</div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#contact">
+                            <div class="menu-circle"></div>
+                            <div class="menu-txt">CONTACT</div>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div><!-- container -->
+    </header>
+
+    <main>
+        <section id="intro" class="intro">
+            <div style="height: 900px; background-color: lightblue;"></div>
+        </section><!-- intro -->
+
+        <section id="about-me" class="about-me">
+            <div style="height: 900px; background-color: lightgoldenrodyellow;"></div>
+        </section><!-- about-me -->
+
+        <section id="skill" class="skill">
+            <div style="height: 900px; background-color: lightcoral;"></div>
+        </section><!-- skill -->
+
+        <section id="portfolio" class="portfolio">
+            <div style="height: 900px; background-color: lightgreen;"></div>
+        </section><!-- portfolio -->
+
+        <section  id="contact" class="contact">
+            <div style="height: 900px; background-color: lightgray;"></div>
+        </section>
+    </main>
+</html>

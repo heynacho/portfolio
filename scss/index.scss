@@ -17,7 +17,17 @@ body {
         position: absolute;
         top: -3%; right: -16%;
         z-index: -1;
-        background-color: $color-deepblue;
+        background-color: $color-midblue;
+
+        @include responsive(large-screens) {
+            width: 120vw; height: 120vw;
+            max-width: 800px; max-height: 800px;
+            top: -7%; right: -25vw;
+        }
+
+        @media (min-width: 1300px) {
+            right: -6vw;
+        }
     }  // sc1-circle-deepblue
 
     .sc1-circle-beige {
@@ -28,6 +38,16 @@ body {
         top: 5.5%; left: -5%;
         z-index: -2;
         background-color: $color-beige;
+
+        @include responsive(large-screens) {
+            width: 60vw; height: 60vw;
+            max-width: 400px; max-height: 400px;
+            top: 5.5%; left: -15vw;
+        }
+
+        @media (min-width: 1300px) {
+            left: -2vw;
+        }
     } // sc1-circle-beige
 }
 
@@ -40,10 +60,17 @@ body {
 
 // ==== header ====
 header {
+    position: fixed;
+    width: 100%;
+    padding: 12px 0;
+    z-index: 1000;
+    background-color: #ffffff00;
+    // transition: background-color 0.3s ease;
+    
     .container {
         display: flex;
         justify-content: space-between;
-        margin-top: 24px;
+        // margin-top: 24px;
 
         .logo {
             width: 20%;
@@ -73,7 +100,7 @@ header {
                     width: 4px; height: 4px;
                     border-radius: 50%;
                     cursor: pointer;
-                    background-color: $color-beige;
+                    background-color: $color-lightblue;
                 }
 
                 .menu-txt {
@@ -83,10 +110,14 @@ header {
 
                 
                 &:hover {
+                    .menu-circle{
+                        background-color: $color-deepblue;
+                    }
+
                     .menu-txt {
                         margin: -4px 16px 0 8px;
                         font-size: 14px;
-                        color: $color-beige;
+                        color: $color-deepblue;
                     }
                 }
             }  // li
@@ -107,25 +138,25 @@ header {
                     margin-left: 12px;
                     .menu-txt {
                         font-size: 16px;
-                        color: $color-beige;
+                        color: $color-lightblue;
                     }
                     .menu-circle {
                         width: 6px; height: 6px;
-                        color: $color-beige;
+                        color: $color-lightblue;
                     }
 
                     &:hover {
                         cursor: pointer;
                         .menu-txt {
+                            font-size: 16px;
                             font-weight: bold;
-                            color: $color-lightblue;
+                            color: $color-deepblue;
                         }
                         .menu-circle {
-                            background-color: $color-lightblue;
+                            background-color: $color-deepblue;
                             opacity: 1;
                         }
                     }
-
                 }
 
                 .selected-menu {
@@ -137,6 +168,17 @@ header {
         }  //gnb
     }  // container
 } // header
+
+
+.header-hide {
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+.header-scroll {
+    opacity: 1;
+    background-color: #ffffff;
+    // mix-blend-mode: hard-light;
+}
 
 // ==== main ====
 h2 {
@@ -166,7 +208,7 @@ section.intro {
 
     .greeting {
         height: 15vh;
-        margin: 64px 0;
+        margin: 160px 0 64px;
 
         p {
             margin-bottom: -8px;
@@ -364,10 +406,15 @@ section.about-me {
         top: -40px; left: -40%;
         z-index: -1;
 
-        // @media (min-width: 432px) {
-        //     left: -180px;
-        // }
-        
+        @include responsive(large-screens) {
+            width: 60vw; height: 60vw;
+            max-width: 800px; max-height: 800px;
+            left: -20%;
+        }
+
+        @media (min-width: 1300px) {
+            left: -8vw;
+        }
     } // sc2-circle-midblue
 
     .sc2-circle-lightblue {
@@ -379,6 +426,15 @@ section.about-me {
         position: absolute;
         top: calc(50% + 7vh); right: -15%;
         z-index: -1;
+
+        @include responsive(large-screens) {
+            max-width: 480px; max-height: 480px;
+            right: -8%;
+        }
+
+        @media (min-width: 1300px) {
+            right: 3%;
+        }
     } // sc2-circle-lightblue
 
     .sc2-flex-wrap {
@@ -461,6 +517,10 @@ section.about-me {
                 color: $color-pink;
                 margin-bottom: 0;
             }
+
+            @include responsive(large-screens) {
+                margin-left: 64px;
+            }
         }  // txt
     }  // img-txt
 }  // section.about-me
@@ -477,8 +537,7 @@ section.skill {
 
         .sub-menu {
             display: flex;
-            cursor: pointer;
-    
+            
             div {
                 margin-left: 8px;
                 padding: 4px 16px;
@@ -486,6 +545,7 @@ section.skill {
                 border-radius: 16px;
                 font-size: 14px;
                 opacity: 0.5;
+                cursor: pointer;
 
                 &:hover {
                     opacity: 1;
@@ -525,9 +585,9 @@ section.skill {
         grid-template-columns: repeat(2, 1fr);
         // grid-gap: 12px;
 
-        // opacity: 0;
+        opacity: 0;
+        transition: opacity 0.5s ease-out;
         // visibility: hidden;
-        // transition: opacity 0.3s ease, visibility 0s linear 0.3s;
 
         li {
             display: block;
@@ -564,6 +624,14 @@ section.skill {
                     color: $color-lightblue;
                 }
             }
+
+            &:hover {
+                border: 3px solid $color-white;
+                cursor: pointer;
+                .prog {
+                    font-weight: bold;
+                }
+            }
         }  // li
 
         .active-skill {
@@ -598,10 +666,22 @@ section.skill {
 
     .menu-show {
         display: grid;
+        opacity: 1;
 
-        // opacity: 1;
-        // visibility: visible;
-        // transition: opacity 0.3s ease, visibility 0s linear;
+        // li {
+        //     animation: rotate 0.5s ease-out forwards;
+        // }
+    }
+
+    @keyframes rotate {
+        from {
+            opacity: 0;
+            transform: translateY(5%) rotate(30deg);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0%) rotate(0deg);
+        }
     }
 
     @include responsive(large-screens) {
@@ -628,6 +708,7 @@ section.portfolio {
 
         &:hover {
             transform: scale(1.1);
+            transition: transform 0.5s;
         }
     }
 
@@ -677,7 +758,7 @@ section.portfolio {
     } // desc
 
     .project1 {
-        top: 15vh; right: 3vh;
+        top: 20vh; right: 3vh;
         width: 80vw; height: 80vw;
         padding: 18% 12%;
 
@@ -796,7 +877,7 @@ section.portfolio {
     }
 
     .project3 {
-        bottom: 5%; left: -5%;
+        bottom: 3%; left: -5%;
 
         @media (min-width: 600px) {
             bottom: 0;
@@ -850,7 +931,8 @@ section.portfolio {
     }
 
     .project6 {
-        bottom: 30%; left: 65%;
+        background-color: $color-lightblue;
+        bottom: 28%; left: 65%;
 
         @media (min-width: 600px) {
             right: -48px;
@@ -875,8 +957,8 @@ section.contact {
     .info-circle {
         margin: 0 auto;
         margin-top: 20vw;
-        width: 70vw; height: 70vw;
-        padding: 15%;
+        width: 80vw; height: 80vw;
+        padding: 10%;
         border-radius: 50%;
         
         // margin-bottom: -10vw;
@@ -890,13 +972,25 @@ section.contact {
         background-color: $color-deepblue;
 
         form {
-            input, textarea {
+            margin-top: 32px;
+            width: 90%;
+
+            li {
+                display: flex;
+                justify-content: space-between;
                 width: 100%;
+            }
+            label {
+                font-size: 2.5vw;
+                color: $color-beige;
+            }
+            input, textarea {
+                width: 70%;
                 padding-bottom: 1vw;
-                margin-bottom: 2vw;
+                margin-bottom: 2.5vw;
                 border: 0;
                 border-bottom: 1px solid $color-beige;
-                font-size: 2vw;
+                font-size: 2.5vw;
                 color: $color-beige;
                 background: transparent;
             }
@@ -904,13 +998,15 @@ section.contact {
             .submit {
                 width: 60%;
                 display: block;
-                margin: 3vw auto 0;
+                margin: 5vw auto 0;
                 padding: 4px 32px;
                 border-radius: 32px;
-                border: 1px solid $color-beige;
+                border: 3px solid $color-beige;
+                font-size: 18px;
+                font-weight: bold;
 
                 &:hover {
-                    border: 1px solid $color-white;
+                    border: 3px solid $color-white;
                     color: $color-white;
                     background-color: $color-lightblue;
                 }
@@ -920,12 +1016,17 @@ section.contact {
         @include responsive(large-screens) {
             max-width: 720px; max-height: 720px;
             margin-top: 240px;
-            padding: 200px 150px;
+            padding: 100px 120px;
 
             form {
+                margin-top: 0;
+                label {
+                    font-size: 26px;
+                    color: $color-beige;
+                }
                 input, textarea {
                     padding-bottom: 16px;
-                    // margin-bottom: 2vw;
+                    margin-bottom: 24px;
                     font-family: $font-regular;
                     font-size: 16px;
                 }

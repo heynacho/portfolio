@@ -61,6 +61,8 @@
 
 html {
     overflow-y: scroll; 
+    scroll-behavior: smooth;
+    scroll-padding-top: 120px; /* 헤더의 높이에 따라 조절 */
 }
 
 body {

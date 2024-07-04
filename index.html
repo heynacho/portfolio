@@ -131,13 +131,13 @@
                     var scrollPosition = window.scrollY || window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
     
                     // 스크롤 위치에 따라 해당 섹션 클래스 추가
-                    if (scrollPosition >= introSection && scrollPosition < aboutMeSection) {
+                    if (scrollPosition >= introSection + 100 && scrollPosition < aboutMeSection + 100) {
                         activateMenuItem(0); // INTRO
-                    } else if (scrollPosition >= aboutMeSection && scrollPosition < skillSection) {
+                    } else if (scrollPosition >= aboutMeSection + 100 && scrollPosition < skillSection + 100) {
                         activateMenuItem(1); // ABOUT ME
-                    } else if (scrollPosition >= skillSection && scrollPosition < portfolioSection) {
+                    } else if (scrollPosition >= skillSection + 100 && scrollPosition < portfolioSection + 100) {
                         activateMenuItem(2); // SKILL
-                    } else if (scrollPosition >= portfolioSection && scrollPosition < contactSection) {
+                    } else if (scrollPosition >= portfolioSection + 100 && scrollPosition < contactSection) {
                         activateMenuItem(3); // PORTFOLIO
                     } else if (scrollPosition >= contactSection) {
                         activateMenuItem(4); // CONTACT
@@ -513,7 +513,7 @@
                             <label for="email">Email</label> <input type="email" name="email" class="email">
                         </li>
                         <li>
-                            <label for="message">Memo</label> <textarea id="message" rows="3" name="message" class="message">메모 남겨주시면 빠르게 회신드리겠습니다. 감사합니다.</textarea>
+                            <label for="message">Memo</label> <textarea id="message" rows="3" name="message" class="message">안녕하세요, 메모 남겨주시면 빠르게 회신드리겠습니다. 감사합니다 :)</textarea>
                         </li>
                     </ul>
                     <input type="submit" class="submit" value="SUBMIT">

@@ -54,11 +54,51 @@
                     </li>
                 </ul>
             </nav>
+
+            <div id="hamburger-menu" class="hamburger-menu" >
+                <div class="bar1"></div>
+                <div class="bar2"></div>
+                <div class="bar3"></div>
+            </div>
         </div><!-- container -->
+
+        <ul id="mobile-gnb" class="mobile-gnb">
+            <li class="selected-menu">
+                <a href="#intro">
+                    <div class="menu-txt">INTRO</div>
+                </a>
+            </li>
+            <li>
+                <a href="#about-me">
+                    <div class="menu-txt">ABOUT ME</div>
+                </a>
+            </li>
+            <li>
+                <a href="#skill">
+                    <div class="menu-txt">SKILL</div>
+                </a>
+            </li>
+            <li>
+                <a href="#portfolio">
+                    <div class="menu-txt">PORTFOLIO</div>
+                </a>
+            </li>
+            <li>
+                <a href="#contact">
+                    <div class="menu-txt">CONTACT</div>
+                </a>
+            </li>
+        </ul>
 
         <script>
             var header = document.getElementById('header');
-        
+            var hamburgerMenu = document.getElementById('hamburger-menu');
+            var mobileGnb = document.getElementById('mobile-gnb');
+
+            hamburgerMenu.addEventListener("click", function() {
+                mobileGnb.classList.toggle("hamburger-show");
+            });
+                
             // 스크롤 이벤트 처리
             window.addEventListener('scroll', function() {
                 if (window.scrollY > 100) {
@@ -145,7 +185,9 @@
                 });
 
                 var gnb = document.querySelector('.gnb');
+                var moGnb = document.querySelector('.mobile-gnb');
                 var menuItems2 = gnb.querySelectorAll('li');
+                var menuItems3 = moGnb.querySelectorAll('li');
     
                 // 각 메뉴 아이템을 활성화하는 함수 정의
                 function activateMenuItem(index) {
@@ -153,9 +195,13 @@
                     menuItems2.forEach(function(item) {
                         item.classList.remove('selected-menu');
                     });
+                    menuItems3.forEach(function(item) {
+                        item.classList.remove('selected-menu');
+                    });
     
                     // index에 해당하는 메뉴 아이템에 selected-menu 클래스 추가
                     menuItems2[index].classList.add('selected-menu');
+                    menuItems3[index].classList.add('selected-menu');
                 };
             });
         </script>
@@ -216,7 +262,14 @@
                                 📧  mellow2362@naver.com
                             </div>
                         </li>
-                        <li>
+                        <li class="page">
+                            <div class="sub-title">LINK</div>
+                            <div class="content">
+                                <a href="#">🔗 notion</a>
+                                <a href="#">🔗 figma</a>
+                            </div>
+                        </li>
+                        <li class="education">
                             <div class="sub-title">EDUCATION</div>
                             <div class="content">
                                 🎓  2024.2 - 2024.7  서울방송정보국제교육원 UIUX디자인 교육 (수료) <br>
@@ -225,7 +278,7 @@
                                 🎓  2010.3 - 2013.2  부산국제외국어고등학교  (졸업)
                             </div>
                         </li>
-                        <li>
+                        <li class="work">
                             <div class="sub-title">WORK</div>
                             <div class="content">
                                 💼  2023.01 - 2024.01  더페이지미디어 (마케팅팀/매니저) <br>
@@ -234,15 +287,15 @@
                                 💼  2020.01 - 2020.02  후케어스 (디자인팀/인턴)
                             </div>
                         </li>
-                        <li>
+                        <li class="certificate">
                             <div class="sub-title">CERTIFICATE</div>
                             <div class="content">
                                 📜  컴퓨터그래픽스 운용기능사 자격증
                             </div>
                         </li>
-                        <li>
+                        <li class="personaility">
                             <div class="sub-title">PERSONALITY</div>
-                            <div class="content content-pink">#CHALLENGING #SOCIABLE #FLEXIBLE</div>
+                            <div class="content content-pink"><span># CHALLENGING</span> <span># SOCIABLE</span> <span># FLEXIBLE</span></div>
                         </li>
                     </ul>
                 </div><!-- img-txt -->
@@ -262,98 +315,133 @@
                 </div><!-- sc3-flex-wrap -->
 
                 <ul class="menu1-content menu-show">
-                    <li class="skill-circle ps">
+                    <li id="skillCircle" class="skill-circle ps">
                         <div class="prog-title">
                             <img src="./images/ps.png" alt="ps logo" />
                             <p class="prog">Adobe<br>Photoshop</p>
                         </div>
-                        <span class="count">98</span>%
+                        <span class="skill-content"><span class="count">98</span>%</span>
+                        <div id="ability" class="ability"></div>
+                        <div class="ability-underline"></div>
                     </li>
-                    <li class="skill-circle ai">
+                    <li id="skillCircle" class="skill-circle ai">
                         <div class="prog-title">
                             <img src="./images/ai.png" alt="ai logo" />
                             <p class="prog">Adobe<br>Illustrator</p>
                         </div>
-                        <span class="count">98</span>%
+                        <span class="skill-content"><span class="count">98</span>%</span>
+                        <div class="ability"></div>
+                        <div class="ability-underline"></div>
                     </li>
-                    <li class="skill-circle pr">
+                    <li id="skillCircle" class="skill-circle pr">
                         <div class="prog-title">
                             <img src="./images/pr.png" alt="pr logo" />
                             <p class="prog">Adobe<br>Premiere Pro</p>
                         </div>
-                        <span class="count">80</span>%
+                        <span class="skill-content"><span class="count">80</span>%</span>
+                        <div class="ability"></div>
+                        <div class="ability-underline"></div>
                     </li>
-                    <li class="skill-circle ae">
+                    <li id="skillCircle" class="skill-circle ae">
                         <div class="prog-title">
                             <img src="./images/ae.png" alt="ae logo" />
                             <p class="prog">Adobe<br>After Effect</p>
                         </div>
-                        <span class="count">80</span>%
+                        <span class="skill-content"><span class="count">80</span>%</span>
+                        <div class="ability"></div>
+                        <div class="ability-underline"></div>
                     </li>
-                    <li class="skill-circle xd">
+                    <li id="skillCircle" class="skill-circle xd">
                         <div class="prog-title">
                             <img src="./images/xd.png" alt="xd logo" />
                             <p class="prog">Adobe<br>XD</p>
                         </div>
-                        <span class="count">70</span>%
+                        <span class="skill-content"><span class="count">70</span>%</span>
+                        <div class="ability"></div>
+                        <div class="ability-underline"></div>
                     </li>
-                    <li class="skill-circle fg">
+                    <li id="skillCircle" class="skill-circle fg">
                         <div class="prog-title">
                             <img src="./images/figma.png" alt="fg logo" />
                             <p class="prog">Figma</p>
                         </div>
-                        <span class="count">90</span>%
+                        <span class="skill-content"><span class="count">90</span>%</span>
+                        <div class="ability"></div>
+                        <div class="ability-underline"></div>
                     </li>
                 </ul><!-- menu1-content -->
     
                 <ul class="menu2-content">
-                    <li class="skill-circle html">
+                    <li id="skillCircle" class="skill-circle html">
                         <div class="prog-title">
                             <img src="./images/html.png" alt="html logo" />
                             <p class="prog">HTML</p>
                         </div>
-                        <span class="count">90</span>%
+                        <span class="skill-content"><span class="count">90</span>%</span>
+                        <div class="ability"></div>
+                        <div class="ability-underline"></div>
                     </li>
-                    <li class="skill-circle css">
+                    <li id="skillCircle" class="skill-circle css">
                         <div class="prog-title">
                             <img src="./images/css.png" alt="css logo" />
                             <p class="prog">CSS</p>
                         </div>
-                        <span class="count">90</span>%
+                        <span class="skill-content"><span class="count">90</span>%</span>
+                        <div class="ability"></div>
+                        <div class="ability-underline"></div>
                     </li>
-                    <li class="skill-circle js">
+                    <li id="skillCircle" class="skill-circle js">
                         <div class="prog-title">
                             <img src="./images/js.png" alt="js logo" />
                             <p class="prog">Java Script</p>
                         </div>
-                        <span class="count">50</span>%
+                        <span class="skill-content"><span class="count">50</span>%</span>
+                        <div class="ability"></div>
+                        <div class="ability-underline"></div>
                     </li>
-                    <li class="skill-circle sass">
+                    <li id="skillCircle" class="skill-circle sass">
                         <div class="prog-title">
                             <img src="./images/sass.png" alt="sass logo" />
                             <p class="prog">SASS</p>
                         </div>
-                        <span class="count">70</span>%
+                        <span class="skill-content"><span class="count">70</span>%</span>
+                        <div class="ability"></div>
+                        <div class="ability-underline"></div>
                     </li>
-                    <li class="skill-circle jq">
+                    <li id="skillCircle" class="skill-circle jq">
                         <div class="prog-title">
                             <img src="./images/jqu.png" alt="jq logo" />
                             <p class="prog">jQuery</p>
                         </div>
-                        <span class="count">50</span>%
+                        <span class="skill-content"><span class="count">50</span>%</span>
+                        <div class="ability"></div>
+                        <div class="ability-underline"></div>
                     </li>
-                    <li class="skill-circle git">
+                    <li id="skillCircle" class="skill-circle git">
                         <div class="prog-title">
                             <img src="./images/git.png" alt="git logo" />
                             <p class="prog">Git Hub</p>
                         </div>
-                        <span class="count">70</span>%
+                        <span class="skill-content"><span class="count">70</span>%</span>
+                        <div class="ability"></div>
+                        <div class="ability-underline"></div>
                     </li>
                 </ul><!-- menu2-content -->
             </div><!-- container -->
 
-            <script>
+            <script>            
                 document.addEventListener("DOMContentLoaded", function() {
+                    // function setEqualWidthAndHeightFromGrid(skillCircle) {
+                    //     var computedStyle = window.getComputedStyle(document.getElementById(skillCircle));
+                    //     var width = computedStyle.getPropertyValue('width');
+                    //     console.log(width);
+    
+                    //     // 세로값으로 가로값을 설정
+                    //     document.getElementById(skillCircle).style.height = width;
+                    // }
+
+                    // setEqualWidthAndHeightFromGrid('SkillCircle');
+
                     const skillSection = document.getElementById('skill');
                     const aboutmeBottom = document.getElementById('aboutmeBottom');
                     const skillCircles = document.querySelectorAll('.skill-circle');
@@ -417,6 +505,91 @@
                         menu2Content.classList.add('menu-show');
                         menu1Content.classList.remove('menu-show');
                     });
+
+                    var skillContents = [
+                        {
+                            id: "ps",
+                            percent: "98",
+                            content: "포토샵으로 할 수 있는 기술 내용 추가하기"
+                        },
+                        {
+                            id: "ai",
+                            percent: "98",
+                            content: "일러스트로 할 수 있는 기술 내용 추가하기"
+                        },
+                        {
+                            id: "pr",
+                            percent: "80",
+                            content: "프리미어로 할 수 있는 기술 내용 추가하기"
+                        },
+                        {
+                            id: "ae",
+                            percent: "80",
+                            content: "애프터 이펙트로 할 수 있는 기술 내용 추가하기"
+                        },
+                        {
+                            id: "xd",
+                            percent: "70",
+                            content: "XD로 할 수 있는 기술 내용 추가하기"
+                        },
+                        {
+                            id: "fg",
+                            percent: "90",
+                            content: "피그마로 할 수 있는 기술 내용 추가하기"
+                        },
+                        {
+                            id: "html",
+                            percent: "90",
+                            content: "HTML로 할 수 있는 기술 내용 추가하기"
+                        },
+                        {
+                            id: "css",
+                            percent: "90",
+                            content: "css로 할 수 있는 기술 내용 추가하기"
+                        },
+                        {
+                            id: "js",
+                            percent: "50",
+                            content: "java script로 할 수 있는 기술 내용 추가하기"
+                        },
+                        {
+                            id: "sass",
+                            percent: "70",
+                            content: "sass로 할 수 있는 기술 내용 추가하기"
+                        },
+                        {
+                            id: "jq",
+                            percent: "50",
+                            content: "jQuery로 할 수 있는 기술 내용 추가하기"
+                        },
+                        {
+                            id: "git",
+                            percent: "70",
+                            content: "깃허브로 할 수 있는 기술 내용 추가하기"
+                        }
+                    ];
+
+                    console.log(skillContents);
+
+                    // 각 요소에 클릭 이벤트 리스너 추가
+                    skillCircles.forEach(function(skillCircle, index) {
+                        skillCircle.addEventListener("click", function() {
+                            // 클릭된 요소에 showDesc 클래스 추가
+                            this.classList.toggle("showDesc");
+
+                            // 내용 변경
+                            var content = this.querySelector(".skill-content");
+
+                            if(this.classList.contains("showDesc")) {
+                                content.textContent = skillContents[index].content;
+                                console.log(skillContents[index].content);
+                            } else {
+                                content.innerHTML = `
+                                    <span class="count">${skillContents[index].percent}</span>%
+                                `;
+                            }
+                        });
+                    });
                 });
                 
             </script>
@@ -441,8 +614,8 @@
 
             <div class="sc3-bubble project2">
                 <div class="desc">
-                    <p class="small">2024 방송정보국제교육원 개인 프로젝트</p>
-                    <p class="name">클립서비스 웹 메인 페이지 리뉴얼</p>
+                    <p class="small">2024 방송정보국제교육원<br>개인 프로젝트</p>
+                    <p class="name">클립서비스 웹 페이지 리뉴얼</p>
                     <div class="btn-box">
                         <button class="pf-button web">Website <img src="./images/right-arrow-white.png" alt=""></button>
                         <button class="pf-button figma">Figma <img src="./images/right-arrow-white.png" alt=""></button>
@@ -454,7 +627,7 @@
 
             <div class="sc3-bubble project3">
                 <div class="desc">
-                    <p class="small">2024 방송정보국제교육원 팀 프로젝트</p>
+                    <p class="small">2024 방송정보국제교육원<br>팀 프로젝트</p>
                     <p class="name">궁중문화축전 반응형 웹페이지 리뉴얼</p>
                     <!-- <div class="web">More</div> -->
                     <div class="btn-box">
@@ -467,9 +640,11 @@
 
             <div class="sc3-bubble project4">
                 <div class="desc">
-                    <p class="small">인포그래픽 영상 제작</p>
+                    <p class="small">인포그래픽 제작</p>
                     <p class="name">반려동물 천만시대, 그 이름 뒤의 그림자</p>
-                    <!-- <div class="web">More</div> -->
+                    <div class="btn-box">
+                        <button class="pf-button view">View <img src="./images/right-arrow-white.png" alt=""></button>
+                    </div>
                 </div><!-- desc -->
                 <img src="" alt="4">
             </div><!-- project4 -->
@@ -478,7 +653,9 @@
                 <div class="desc">
                     <p class="small">모션그래픽 광고 영상 제작</p>
                     <p class="name">점심 메뉴 고민될 땐, WE EAT</p>
-                    <!-- <div class="web">More</div> -->
+                    <div class="btn-box">
+                        <button class="pf-button view">View <img src="./images/right-arrow-white.png" alt=""></button>
+                    </div>
                 </div><!-- desc -->
                 <img src="" alt="5">
             </div><!-- project5 -->
@@ -487,7 +664,9 @@
                 <div class="desc">
                     <p class="small">대학로 문화 활성화 캠페인</p>
                     <p class="name">경성대·부경대 노래하는 옥상</p>
-                    <!-- <div class="web">More</div> -->
+                    <div class="btn-box">
+                        <button class="pf-button view">View <img src="./images/right-arrow-white.png" alt=""></button>
+                    </div>
                 </div><!-- desc -->
                 <img src="" alt="6">
             </div><!-- project6 -->

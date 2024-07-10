@@ -510,32 +510,32 @@
                         {
                             id: "ps",
                             percent: "98",
-                            content: "포토샵으로 할 수 있는 기술 내용 추가하기"
+                            content: "레이어와 필터, 마스크 등을 활용해 이미지를 보정하고 합성할 수 있습니다. 웹페이지, SNS/배너 콘텐츠, 포스터 등의 디자인 작업이 가능합니다. "
                         },
                         {
                             id: "ai",
                             percent: "98",
-                            content: "일러스트로 할 수 있는 기술 내용 추가하기"
+                            content: "패스를 이용한 백터 디자인이 가능합니다. 간단한 캐릭터 디자인, 로고 디자인 등의 작업이 가능합니다."
                         },
                         {
                             id: "pr",
                             percent: "80",
-                            content: "프리미어로 할 수 있는 기술 내용 추가하기"
+                            content: "트랙매트, 마스크, 이펙트 등을 활용하여 다양한 효과의 컷편집 제작이 가능하며 자막 제작과 멀티캠 편집 작업이 가능합니다."
                         },
                         {
                             id: "ae",
                             percent: "80",
-                            content: "애프터 이펙트로 할 수 있는 기술 내용 추가하기"
+                            content: "마스크, 이펙트, 플러그인 등을 활용하여 타이포 그래피, 인포그래픽 영상 등의 동적인 애니메이션 제작이 가능합니다"
                         },
                         {
                             id: "xd",
                             percent: "70",
-                            content: "XD로 할 수 있는 기술 내용 추가하기"
+                            content: "다양한 디바이스에 맞춘 와이어프레임과 프로토타입을 제작 가능하고 유관부서와의 협업을 위한 공유 파일을 생성할 수 있습니다."
                         },
                         {
                             id: "fg",
                             percent: "90",
-                            content: "피그마로 할 수 있는 기술 내용 추가하기"
+                            content: "기획서와 와이어프레임 등 웹기획에 필요한 문서를 작성하고, UI디자인과 프로토타입을 제작할 수 있습니다."
                         },
                         {
                             id: "html",
@@ -604,8 +604,9 @@
                 <div class="desc">
                     <p class="small">2020 서울여자대학교<br>졸업프로젝트</p>
                     <p class="name">내로라: 내일로 로드 라인</p>
-                    <div class="btn-box">
+                    <div class="btn-box" onclick="moveTrain()">
                         <button class="pf-button web">Website <img src="./images/right-arrow-white.png" alt=""></button>
+                        <!-- http://dm.swu.ac.kr/graduate2020/sub18.html -->
                         <button class="pf-button figma">Figma <img src="./images/right-arrow-white.png" alt=""></button>
                     </div>
                 </div><!-- desc -->
@@ -642,8 +643,9 @@
                 <div class="desc">
                     <p class="small">인포그래픽 제작</p>
                     <p class="name">반려동물 천만시대, 그 이름 뒤의 그림자</p>
-                    <div class="btn-box">
+                    <div class="btn-box" onclick="movePuppy()">
                         <button class="pf-button view">View <img src="./images/right-arrow-white.png" alt=""></button>
+                        <!-- https://youtu.be/RdmWrrm1t64 로 이동 -->
                     </div>
                 </div><!-- desc -->
                 <img src="" alt="4">
@@ -653,8 +655,9 @@
                 <div class="desc">
                     <p class="small">모션그래픽 광고 영상 제작</p>
                     <p class="name">점심 메뉴 고민될 땐, WE EAT</p>
-                    <div class="btn-box">
+                    <div class="btn-box" onclick="moveLunch()">
                         <button class="pf-button view">View <img src="./images/right-arrow-white.png" alt=""></button>
+                        <!-- https://youtu.be/nRH7hqx5op0 로 이동 -->
                     </div>
                 </div><!-- desc -->
                 <img src="" alt="5">
@@ -733,7 +736,21 @@
                     textarea.addEventListener('click', function() {
                         textarea.value = '';
                     });
+
                 });
+                // 링크 이동
+                function movePuppy() {
+                    var puppy = "https://youtu.be/RdmWrrm1t64";
+                    window.open(puppy, "_blank");
+                };
+                function moveLunch() {
+                    var lunch = "https://youtu.be/nRH7hqx5op0";
+                    window.open(lunch, "_blank");
+                };
+                function moveTrain() {
+                    var lunch = "http://dm.swu.ac.kr/graduate2020/sub18.html";
+                    window.open(lunch, "_blank");
+                };
             </script>
         </section>
     </main>

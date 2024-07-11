@@ -621,7 +621,7 @@ section.about-me {
             @include responsive(large-screens) {
                 margin-left: 64px;
 
-                .page, .education, .work {
+                .education, .work {
                     display: block;
                 }
 
@@ -825,7 +825,8 @@ section.skill {
 
             .skill-content {
                 display: block;
-                font-size: 14px;
+                font-size: 2.2vw;
+                padding: 8px;
                 // margin: 15% 0;
             }
 
@@ -958,7 +959,7 @@ section.portfolio {
     position: relative;
     overflow: hidden;
     margin: 48px 0;
-    height: 120vh;
+    height: 150vh;
 
     h2 {
         color: $color-deepblue;
@@ -1025,7 +1026,7 @@ section.portfolio {
     } // desc
 
     .project1 {
-        top: 38vh; right: 3vh;
+        top: 48vh; right: 3vh;
         width: 85vw; height: 85vw;
         padding: 18% 12%;
 
@@ -1034,7 +1035,7 @@ section.portfolio {
         background-color: $color-pink;
 
         @media (min-width: 600px) {
-            top: 3%; right: 30%;
+            top: 3%; right: 28%;
             max-width: 700px; max-height: 700px;
             padding: 135px 100px;
 
@@ -1085,8 +1086,13 @@ section.portfolio {
         padding: 14% 10%;
         background-color: $color-midblue;
 
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
         .desc{
             position: relative;
+            width: 70%;
             height: 90%;
 
             .small {
@@ -1114,9 +1120,12 @@ section.portfolio {
             }
         }  // desc
 
-        img {
-            display: none;
+        .pj-image {
+            width: 30%; height: auto;
+            object-fit: contain;
+            margin-bottom: 18%;
         }
+
 
         @media (min-width: 600px) {
             // right: 30%;
@@ -1166,7 +1175,7 @@ section.portfolio {
         top: 1%; right: -6%;
 
         @media (min-width: 600px) {
-            top: 3%; right: -1%;
+            top: 15%; right: -1%;
         }
     }
 
@@ -1174,12 +1183,12 @@ section.portfolio {
         bottom: 1%; left: -7%;
 
         @media (min-width: 600px) {
-            bottom: 10%; left: 8%;
+            bottom: 19%; left: 13%;
         }
     }
 
     .project4, .project5, .project6 {
-        width: 60vw; height: 60vw;
+        width: 55vw; height: 55vw;
         padding: 15% 10%;
         background-color: $color-beige;
 
@@ -1192,6 +1201,7 @@ section.portfolio {
                 color: $color-midblue;
             }
             .name {
+                margin: 1.5vw 0;
                 font-size: 3.5vw;
                 color: $color-deepblue;
             }
@@ -1281,7 +1291,7 @@ section.portfolio {
         top: 15%; left: -6%;
 
         @media (min-width: 600px) {
-          top: 10%; left: 3%;     
+          top: 13%; left: 3%;     
         }
     }
 
@@ -1289,20 +1299,192 @@ section.portfolio {
         bottom: 15%; right: -10%;
 
         @media (min-width: 600px) {
-            bottom: 13%; right: 10%;
+            bottom: 14%; right: 20%;
         }
     }
 
     .project6 {
         background-color: $color-lightblue;
+        width: 50vw; height: 50vw;
         bottom: 25%; left: 1%;
 
         @media (min-width: 600px) {
-            bottom: 1.5%; left: 48%;
+            max-width: 400px; max-height: 400px;
+            bottom: 1.5%; left: 38%;
         }
+    }
+
+    .project7, .project8 {
+        display: none;
+        width: 55vw; height: 55vw;
+        padding: 15% 10%;
+        background-color: $color-beige;
+
+        .desc{
+            position: relative;
+            height: 90%;
+
+            .small {
+                font-size: 2.5vw;
+                color: $color-midblue;
+            }
+            .name {
+                font-size: 3.5vw;
+                color: $color-deepblue;
+            }
+    
+            .btn-box {
+                // display: none;
+    
+                position: absolute;
+                bottom: 0; left: 0;
+                
+                button {
+                    display: block;
+                    width: 28vw;
+                    margin-top: 1vw;
+                    padding: 1vw 2vw;
+    
+                    font-family: $font-light;
+                    font-size: 3vw;
+                    font-weight: 100;
+                    text-align: left;
+                    border: 1px solid $color-midblue;
+                    color: $color-midblue;
+                    background-color: transparent;
+
+                    &:hover {
+                        cursor: pointer;
+                        color: $color-white;
+                        background-color: $color-midblue;
+                    }
+                }
+            }
+
+        @media (min-width: 600px) {
+            margin-top: 20px;
+        }
+        }
+
+        img {
+            display: none;
+        }
+
+        @media (min-width: 600px) {
+            // right: 30%;
+            display: block;
+            max-width: 320px; max-height: 320px;
+            padding: 75px 60px;
+
+            .desc {
+                .small {
+                    font-size: 18px;
+                }
+                .name {
+                    margin: 1vw 0;
+                    font-size: 24px;
+                }
+        
+                .btn-box {
+                    button {
+                        display: block;
+                        width: 180px;
+                        margin-top: 6px;
+                        padding: 6px 12px;
+        
+                        font-family: $font-regular;
+                        font-size: 18px;
+                        text-align: left;
+                        border: 1px solid $color-midblue;
+                        color: $color-midblue;
+                        background-color: transparent;
+        
+                        img {
+                            display: inline;
+                            float: right;
+                            width: 24px;
+                            margin-top: 3px;
+                        }
+                    }
+                }
+            }
+
+            img {
+                height: 100%;
+            }
+        }
+
+    } // project4~6
+
+    .project7 {
+        background-color: $color-beige;
+        bottom: 5%; left: 1%;
+
+        @media (min-width: 600px) {
+            bottom: 2%; left: 3%;
+        }
+    }
+
+    .project8 {
+        background-color: $color-midblue;
+        bottom: 5%; right: 1%;
+
+        .desc {
+            .small {
+                color: $color-beige;
+            }
+
+            .btn-box {
+                button {
+                    border: 1px solid $color-beige;
+                    color: $color-beige;
+
+                    &:hover {
+                        color: $color-deepblue;
+                        background-color: $color-beige;
+                    }
+                }
+            }
+        }
+
+        @media (min-width: 600px) {
+            bottom: 3%; right: 4%;
+        }
+    }
+
+    @media (min-width: 600px) {
+        height: 135vh;
     }
 }
 
+// ==== modal ====
+.img-modal {
+    display: none;
+    position: absolute;
+    width: 100%; height: 100%;
+    background-color: #000000be;
+    z-index: 500;
+    
+    img {
+        height: 90%;
+        margin: 0 auto;
+    }
+
+    .modal-close-btn {
+        position: absolute;
+        bottom: 5%; right: 50%;
+
+        &::before {
+            content: 'close';
+            color: $color-beige;
+        }
+
+        &:hover {
+            cursor: pointer;
+        }
+    }
+    
+}
 
 // ==== contact ====
 

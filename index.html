@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="title" property="og:title" content="포트폴리오">
     <meta name="images" property="og:image" content="./images/og_thumbnail.jpg">
-    <meta name="description" property="og:description" content="시작은 포트폴리오">
+    <meta name="description" property="og:description" content="조한나 포트폴리오">
     <meta name="type" property="og:type" content="article">
     <link rel="stylesheet" href="./css/reset.css">
     <link rel="stylesheet" href="./css/index.css">
@@ -265,8 +265,9 @@
                         <li class="page">
                             <div class="sub-title">LINK</div>
                             <div class="content">
-                                <a href="#">🔗 notion</a>
-                                <a href="#">🔗 figma</a>
+                                <a href="https://bit.ly/HeyNacho" target="_blank">Notion Portfolio 🔗https://bit.ly/HeyNacho </a>
+                                <!-- <a href="#">Figma 🔗 </a> -->
+                                <a href="https://github.com/heynacho/portfolio" target="_blank">Git Hub 🔗https://github.com/heynacho/portfolio </a>
                             </div>
                         </li>
                         <li class="education">
@@ -540,32 +541,32 @@
                         {
                             id: "html",
                             percent: "90",
-                            content: "HTML로 할 수 있는 기술 내용 추가하기"
+                            content: "웹표준과 접근성을 준수하여 페이지의 구조를 짜고 다양한 콘텐츠를 삽입하여 웹페이지를 제작할 수 있습니다."
                         },
                         {
                             id: "css",
                             percent: "90",
-                            content: "css로 할 수 있는 기술 내용 추가하기"
+                            content: "다양한 레이아웃과 스타일 속성을 적용하여 화면을 디자인하고, 미디어 쿼리를 정의하여 다양한 화면 크기에 맞춘 반응형 페이지를 구성할 수 있습니다."
                         },
                         {
                             id: "js",
                             percent: "50",
-                            content: "java script로 할 수 있는 기술 내용 추가하기"
+                            content: "자바스크립트에 대한 기본 개념을 이해하고 있으며 변수를 정의하고 제어문 등을 활용해 슬라이드, 메뉴, 스크롤 애니메이션 등의 동적 기능을 구현할 수 있습니다."
                         },
                         {
                             id: "sass",
                             percent: "70",
-                            content: "sass로 할 수 있는 기술 내용 추가하기"
+                            content: "변수와 믹스인, 중첩 규칙을 활용하여 유지보수가 수월한 CSS 코드를 작성할 수 있습니다."
                         },
                         {
                             id: "jq",
-                            percent: "50",
-                            content: "jQuery로 할 수 있는 기술 내용 추가하기"
+                            percent: "70",
+                            content: "라이브러리를 활용해 HTML 요소의 내용을 변경하거나 스타일을 수정하는 등의 작업이 가능합니다. 클릭과 호버 등의 동작 결과를 적용할 수 있습니다."
                         },
                         {
                             id: "git",
                             percent: "70",
-                            content: "깃허브로 할 수 있는 기술 내용 추가하기"
+                            content: "git 명령어를 활용해 깃허브에 프로젝트를 등록,관리하고 branch를 활용해 협업을 진행할 수 있습니다. "
                         }
                     ];
 
@@ -604,10 +605,11 @@
                 <div class="desc">
                     <p class="small">2020 서울여자대학교<br>졸업프로젝트</p>
                     <p class="name">내로라: 내일로 로드 라인</p>
-                    <div class="btn-box" onclick="moveTrain()">
-                        <button class="pf-button web">Website <img src="./images/right-arrow-white.png" alt=""></button>
+                    <div class="btn-box">
+                        <button class="pf-button web" onclick="moveTrainPage()">Website <img src="./images/right-arrow-white.png" alt=""></button>
                         <!-- http://dm.swu.ac.kr/graduate2020/sub18.html -->
-                        <button class="pf-button figma">Figma <img src="./images/right-arrow-white.png" alt=""></button>
+                        <button class="pf-button figma" onclick="moveTrainFg()">Figma <img src="./images/right-arrow-white.png" alt=""></button>
+                        <!-- https://www.figma.com/design/HNv0JqxvvSSQgKhTwDXRiQ/%5B%EC%9D%80%EA%B0%80%EB%B9%84%5D%EB%82%B4%EB%A1%9C%EB%9D%BC%3A%EB%82%B4%EC%9D%BC%EB%A1%9C-%EB%A1%9C%EB%93%9C-%EB%9D%BC%EC%9D%B8?node-id=0-1&t=L6ABD0QxdIgzceDq-1 -->
                     </div>
                 </div><!-- desc -->
                 <img src="./images/project1.png" alt="project1">
@@ -618,12 +620,12 @@
                     <p class="small">2024 방송정보국제교육원<br>개인 프로젝트</p>
                     <p class="name">클립서비스 웹 페이지 리뉴얼</p>
                     <div class="btn-box">
-                        <button class="pf-button web">Website <img src="./images/right-arrow-white.png" alt=""></button>
-                        <button class="pf-button figma">Figma <img src="./images/right-arrow-white.png" alt=""></button>
+                        <button class="pf-button web" onclick="moveclipPage()">Website <img src="./images/right-arrow-white.png" alt=""></button>
+                        <button class="pf-button figma">Design Guide <img src="./images/right-arrow-white.png" alt=""></button>
                     </div>
                     <!-- <div class="web">More</div> -->
                 </div><!-- desc -->
-                <img src="" alt="2">
+                <img src="./images/project2.png" alt="2" class="pj-image">
             </div><!-- project2 -->
 
             <div class="sc3-bubble project3">
@@ -632,16 +634,20 @@
                     <p class="name">궁중문화축전 반응형 웹페이지 리뉴얼</p>
                     <!-- <div class="web">More</div> -->
                     <div class="btn-box">
-                        <button class="pf-button web">Website <img src="./images/right-arrow-white.png" alt=""></button>
-                        <button class="pf-button figma">Figma <img src="./images/right-arrow-white.png" alt=""></button>
+                        <button class="pf-button web" onclick="moveKhfestPage()">Website <img src="./images/right-arrow-white.png" alt=""></button>
+                        <button class="pf-button figma" id="modal-khFest">Design Guide <img src="./images/right-arrow-white.png" alt=""></button>
                     </div>
                 </div><!-- desc -->
-                <img src="" alt="3">
+                <img src="./images/project3.png" alt="3" class="pj-image">
             </div><!-- project3 -->
+            <div class="img-modal" id="img-khFest">
+                <img src="./design-guide/guide_khfest.png" alt="design-guide">
+                <div class="modal-close-btn" id="modal-close-btn2"></div>
+            </div>
 
             <div class="sc3-bubble project4">
                 <div class="desc">
-                    <p class="small">인포그래픽 제작</p>
+                    <p class="small">인포그래픽 영상 제작</p>
                     <p class="name">반려동물 천만시대, 그 이름 뒤의 그림자</p>
                     <div class="btn-box" onclick="movePuppy()">
                         <button class="pf-button view">View <img src="./images/right-arrow-white.png" alt=""></button>
@@ -667,14 +673,111 @@
                 <div class="desc">
                     <p class="small">대학로 문화 활성화 캠페인</p>
                     <p class="name">경성대·부경대 노래하는 옥상</p>
-                    <div class="btn-box">
+                    <div class="btn-box" onclick="moveCjg()">
                         <button class="pf-button view">View <img src="./images/right-arrow-white.png" alt=""></button>
+                        <!-- https://youtu.be/q7gJMh1dDiQ 로 이동 -->
                     </div>
                 </div><!-- desc -->
                 <img src="" alt="6">
             </div><!-- project6 -->
             
+            <div class="sc3-bubble project7">
+                <div class="desc">
+                    <p class="small">인포그래픽 포스터 제작</p>
+                    <p class="name">라면, 좋아하세요?</p>
+                    <div class="btn-box" id="modal-ramyeon">
+                        <button class="pf-button view">View <img src="./images/right-arrow-white.png" alt=""></button>
+                    </div>
+                </div><!-- desc -->
+                <img src="" alt="7">
+            </div><!-- project7 -->
+            <div class="img-modal" id="img-ramyeon">
+                <img src="./works/infographic_poster.png" alt="design-guide">
+                <div class="modal-close-btn" id="modal-close-btn3"></div>
+            </div>
+
+            <div class="sc3-bubble project8">
+                <div class="desc">
+                    <p class="small">개인 포트폴리오 페이지 제작</p>
+                    <p class="name">UIUX 포트폴리오</p>
+                    <div class="btn-box" onclick="movePortfolio()">
+                        <button class="pf-button view">Website <img src="./images/right-arrow-white.png" alt=""></button>
+                        <!-- <button class="pf-button figma">Design Guide <img src="./images/right-arrow-white.png" alt=""></button> -->
+                    </div>
+                </div><!-- desc -->
+                <img src="" alt="8">
+            </div><!-- project8 -->
+
             <div id="portfolioBottom" style="height: 1px;"></div>
+
+            <script>
+                // 링크 이동
+                function moveTrainPage() {
+                    var trainPage = "http://dm.swu.ac.kr/graduate2020/sub18.html";
+                    window.open(trainPage, "_blank");
+                };
+                function moveTrainFg() {
+                    var trainFg = "https://www.figma.com/design/HNv0JqxvvSSQgKhTwDXRiQ/%5B%EC%9D%80%EA%B0%80%EB%B9%84%5D%EB%82%B4%EB%A1%9C%EB%9D%BC%3A%EB%82%B4%EC%9D%BC%EB%A1%9C-%EB%A1%9C%EB%93%9C-%EB%9D%BC%EC%9D%B8?node-id=0-1&t=L6ABD0QxdIgzceDq-1";
+                    window.open(trainFg, "_blank");
+                };
+                function moveclipPage() {
+                    var clipPage = "/works/page/clipservice/index.html";
+                    window.open(clipPage, "_blank");
+                }
+                function moveclipDG() {
+                    // 모달 만들기
+                }
+                function moveKhfestPage() {
+                    var khfestPage = "https://leeheejin00.github.io";
+                    window.open(khfestPage, "_blank");
+                }
+                
+                var btnkhFest = document.getElementById("modal-khFest");
+                var modalkhFest = document.getElementById("img-khFest");
+                var feClose = document.getElementById("modal-close-btn2");
+
+                btnkhFest.onclick = function() {
+                    modalkhFest.style.display = "block";
+                }
+
+                feClose.onclick = function() {
+                    modalkhFest.style.display = "none";
+                }
+
+                function movePuppy() {
+                    var puppy = "https://youtu.be/RdmWrrm1t64";
+                    window.open(puppy, "_blank");
+                };
+                function moveLunch() {
+                    var lunch = "https://youtu.be/nRH7hqx5op0";
+                    window.open(lunch, "_blank");
+                };
+                function moveTrain() {
+                    var lunch = "http://dm.swu.ac.kr/graduate2020/sub18.html";
+                    window.open(lunch, "_blank");
+                };
+                function moveCjg() {
+                    var lunch = "https://youtu.be/q7gJMh1dDiQ";
+                    window.open(lunch, "_blank");
+                };
+
+                var btnRamyeon = document.getElementById("modal-ramyeon");
+                var modalRamyeon = document.getElementById("img-ramyeon");
+                var rmClose = document.getElementById("modal-close-btn3");
+
+                btnRamyeon.onclick = function() {
+                    modalRamyeon.style.display = "block";
+                }
+
+                rmClose.onclick = function() {
+                    modalRamyeon.style.display = "none";
+                }
+
+                function movePortfolio() {
+                    var pfindex = "index.html";
+                    window.open(pfindex, "_self");
+                };
+            </script>
         </section><!-- portfolio -->
 
         <section  id="contact" class="contact">
@@ -686,13 +789,13 @@
                 <form action="#" method="post">
                     <ul class="info">
                         <li>
-                            <label for="name">Name</label> <input type="text" name="name" class="name">
+                            <label for="name">Name</label> <input type="text" name="name" class="name" value="조한나">
                         </li>
                         <li>
-                            <label for="tel">Tel</label> <input type="tel" name="tel" class="tel">
+                            <label for="tel">Tel</label> <input type="tel" name="tel" class="tel" value="010-8913-1106">
                         </li>
                         <li>
-                            <label for="email">Email</label> <input type="email" name="email" class="email">
+                            <label for="email">Email</label> <input type="email" name="email" class="email" value="mellow2362@naver.com">
                         </li>
                         <li>
                             <label for="message">Memo</label> <textarea id="message" rows="3" name="message" class="message">안녕하세요, 메모 남겨주시면 빠르게 회신드리겠습니다. 감사합니다 :)</textarea>
@@ -722,7 +825,7 @@
                         console.log('Scroll Position:', scrollPosition);
 
                         // portfolio 섹션의 맨 아래 요소가 뷰포트 안에 들어오면 active 클래스 추가
-                        if (scrollPosition >= portfolioBottomOffset) {
+                        if (scrollPosition >= portfolioBottomOffset + 500) {
                             infoCircle.classList.add('active-contact');
                         } else {
                             infoCircle.classList.remove('active-contact');
@@ -738,19 +841,7 @@
                     });
 
                 });
-                // 링크 이동
-                function movePuppy() {
-                    var puppy = "https://youtu.be/RdmWrrm1t64";
-                    window.open(puppy, "_blank");
-                };
-                function moveLunch() {
-                    var lunch = "https://youtu.be/nRH7hqx5op0";
-                    window.open(lunch, "_blank");
-                };
-                function moveTrain() {
-                    var lunch = "http://dm.swu.ac.kr/graduate2020/sub18.html";
-                    window.open(lunch, "_blank");
-                };
+                
             </script>
         </section>
     </main>

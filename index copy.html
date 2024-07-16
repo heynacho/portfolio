@@ -14,6 +14,7 @@
     <title>Portfolio</title>
 </head>
 <body>
+    <body>
     <header id="header">
         <div class="container">
             <div class="logo">
@@ -89,6 +90,122 @@
                 </a>
             </li>
         </ul>
+
+        <script>
+            var header = document.getElementById('header');
+            var hamburgerMenu = document.getElementById('hamburger-menu');
+            var mobileGnb = document.getElementById('mobile-gnb');
+
+            hamburgerMenu.addEventListener("click", function() {
+                mobileGnb.classList.toggle("hamburger-show");
+            });
+                
+            // 스크롤 이벤트 처리
+            window.addEventListener('scroll', function() {
+                if (window.scrollY > 100) {
+                    // header.style.backgroundColor = '#fffffee';
+                    header.classList.add('header-hide');
+                } else {
+                    // header.style.backgroundColor = 'none';
+                    header.classList.remove('header-hide');
+                }
+            });
+        
+            // 마우스 이벤트 처리
+            header.addEventListener('mousemove', function(event) {
+                var mouseY = event.clientY;
+                console.log('Mouse Y:', mouseY);
+
+                if (mouseY < 40) {
+                    header.classList.add('header-scroll');
+                } else {
+                    header.classList.remove('header-scroll');
+                }
+            });
+        
+            // 마우스가 헤더에 들어왔을 때
+            header.addEventListener('mouseenter', function() {
+                header.classList.add('header-scroll');
+            });
+        
+            // 마우스가 헤더에서 나갔을 때
+            header.addEventListener('mouseleave', function() {
+                header.classList.remove('header-scroll');
+            });
+            
+            // ul 요소
+            var gnb = document.querySelector('.gnb');
+            // ul 요소 안의 각 li 요소
+            var menuItems = gnb.querySelectorAll('li');
+
+            // 메뉴 클릭하면 클래스 이동   
+
+            // 각 li 요소에 클릭 이벤트 리스너 추가
+            menuItems.forEach(function(menuItem) {
+                menuItem.addEventListener('click', function() {
+                    // 이전에 선택된 li 요소의 클래스 제거
+                    menuItems.forEach(function(item) {
+                        item.classList.remove('selected-menu');
+                    });
+                    // 클릭된 li 요소에만 selected-menu 클래스 추가
+                    menuItem.classList.add('selected-menu');
+                });
+            });
+            
+            document.addEventListener('DOMContentLoaded', function() {
+
+                // body를 기준으로 각 섹션의 offsetTop 값 계산
+                var bodyScrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
+
+                var introSection = 0; // intro 섹션은 body 상단부터의 거리로 0으로 설정
+
+                // 다른 섹션들은 offsetTop 값을 body 기준으로 계산
+                var aboutMeSection = document.getElementById('aboutTop').getBoundingClientRect().top + bodyScrollTop;
+                var skillSection = document.getElementById('skillTop').getBoundingClientRect().top + bodyScrollTop;
+                var portfolioSection = document.getElementById('portfolioTop').getBoundingClientRect().top + bodyScrollTop;
+                var contactSection = document.getElementById('contactTop').getBoundingClientRect().top + bodyScrollTop;
+    
+                console.log(introSection, aboutMeSection, skillSection, portfolioSection, contactSection);
+
+                // 스크롤 이벤트 리스너 추가
+                window.addEventListener('scroll', function() {
+                    var scrollPosition = window.scrollY || window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
+    
+                    // 스크롤 위치에 따라 해당 섹션 클래스 추가
+                    if (scrollPosition >= introSection + 100 && scrollPosition < aboutMeSection + 100) {
+                        activateMenuItem(0); // INTRO
+                    } else if (scrollPosition >= aboutMeSection + 100 && scrollPosition < skillSection + 100) {
+                        activateMenuItem(1); // ABOUT ME
+                    } else if (scrollPosition >= skillSection + 100 && scrollPosition < portfolioSection + 100) {
+                        activateMenuItem(2); // SKILL
+                    } else if (scrollPosition >= portfolioSection + 100 && scrollPosition < contactSection) {
+                        activateMenuItem(3); // PORTFOLIO
+                    } else if (scrollPosition >= contactSection) {
+                        activateMenuItem(4); // CONTACT
+                    }
+                });
+
+                var gnb = document.querySelector('.gnb');
+                var moGnb = document.querySelector('.mobile-gnb');
+                var menuItems2 = gnb.querySelectorAll('li');
+                var menuItems3 = moGnb.querySelectorAll('li');
+    
+                // 각 메뉴 아이템을 활성화하는 함수 정의
+                function activateMenuItem(index) {
+                    // 모든 메뉴 아이템에서 selected-menu 클래스 제거
+                    menuItems2.forEach(function(item) {
+                        item.classList.remove('selected-menu');
+                    });
+                    menuItems3.forEach(function(item) {
+                        item.classList.remove('selected-menu');
+                    });
+    
+                    // index에 해당하는 메뉴 아이템에 selected-menu 클래스 추가
+                    menuItems2[index].classList.add('selected-menu');
+                    menuItems3[index].classList.add('selected-menu');
+                };
+            });
+        </script>
     </header>
 
     <main>
@@ -110,6 +227,11 @@
                     <div class="ability bubble3">Publishing</div>
                     <div class="ability bubble4">Marketing</div>
                     <div id="wave-line">&nbsp;</div>
+                    <script>
+                        $(function() {
+                            $('#wave-line').load('text_svg.html');
+                        })
+                    </script>
                 </div>
             </div><!-- container -->
         </section><!-- intro -->
@@ -308,6 +430,171 @@
                     </li>
                 </ul><!-- menu2-content -->
             </div><!-- container -->
+
+            <script>            
+                document.addEventListener("DOMContentLoaded", function() {
+                    // function setEqualWidthAndHeightFromGrid(skillCircle) {
+                    //     var computedStyle = window.getComputedStyle(document.getElementById(skillCircle));
+                    //     var width = computedStyle.getPropertyValue('width');
+                    //     console.log(width);
+    
+                    //     // 세로값으로 가로값을 설정
+                    //     document.getElementById(skillCircle).style.height = width;
+                    // }
+
+                    // setEqualWidthAndHeightFromGrid('SkillCircle');
+
+                    const skillSection = document.getElementById('skill');
+                    const aboutmeBottom = document.getElementById('aboutmeBottom');
+                    const skillCircles = document.querySelectorAll('.skill-circle');
+            
+                    const skillRect = skillSection.getBoundingClientRect();
+                    const skillSectionTop = skillRect.top + window.scrollY;
+
+                    // 숫자 카운트
+                    function startCounters() {
+                        $('.count').each(function () {
+                            $(this).prop('Counter',0).animate({
+                                Counter: $(this).text()
+                            }, {
+                                duration: 1000,
+                                easing: 'swing',
+                                step: function (now) {
+                                    $(this).text(Math.ceil(now));
+                                }
+                            });
+                        });
+                    }
+            
+                    startCounters();
+                    
+                    // 스크롤 이벤트
+                    window.addEventListener('scroll', function() {
+                        const scrollPosition = window.scrollY;
+                        const aboutmeBottomRect = aboutmeBottom.getBoundingClientRect();
+                        const aboutmeBottomOffset = aboutmeBottomRect.top + window.scrollY;
+            
+                        if (scrollPosition + 100 >= aboutmeBottomOffset) {
+                            skillCircles.forEach((circle, index) => {
+                                setTimeout(() => {
+                                    circle.classList.add('active-skill');
+                                }, index * 100); // 0.1초씩 시간차를 두어 순차적으로 추가
+                            });
+                        } else {
+                            skillCircles.forEach(circle => circle.classList.remove('active-skill'));
+                        }
+                    });
+
+                    const menu1 = document.querySelector('.menu1');
+                    const menu2 = document.querySelector('.menu2');
+                    const menu1Content = document.querySelector('.menu1-content');
+                    const menu2Content = document.querySelector('.menu2-content');
+                    
+                    // .menu1 클릭 이벤트
+                    menu1.addEventListener('click', function() {
+                        menu1.classList.add('selected-skill-menu');
+                        menu2.classList.remove('selected-skill-menu');
+                        
+                        menu1Content.classList.add('menu-show');
+                        menu2Content.classList.remove('menu-show');   
+                    });
+                    
+                    // .menu2 클릭 이벤트
+                    menu2.addEventListener('click', function() {
+                        menu2.classList.add('selected-skill-menu');
+                        menu1.classList.remove('selected-skill-menu');
+                        
+                        menu2Content.classList.add('menu-show');
+                        menu1Content.classList.remove('menu-show');
+                    });
+
+                    var skillContents = [
+                        {
+                            id: "ps",
+                            percent: "98",
+                            content: "레이어와 필터, 마스크 등을 활용해 이미지를 보정하고 합성할 수 있습니다. 웹페이지, SNS/배너 콘텐츠, 포스터 등의 디자인 작업이 가능합니다. "
+                        },
+                        {
+                            id: "ai",
+                            percent: "98",
+                            content: "패스를 이용한 백터 디자인이 가능합니다. 간단한 캐릭터 디자인, 로고 디자인 등의 작업이 가능합니다."
+                        },
+                        {
+                            id: "pr",
+                            percent: "80",
+                            content: "트랙매트, 마스크, 이펙트 등을 활용하여 다양한 효과의 컷편집 제작이 가능하며 자막 제작과 멀티캠 편집 작업이 가능합니다."
+                        },
+                        {
+                            id: "ae",
+                            percent: "80",
+                            content: "마스크, 이펙트, 플러그인 등을 활용하여 타이포 그래피, 인포그래픽 영상 등의 동적인 애니메이션 제작이 가능합니다"
+                        },
+                        {
+                            id: "xd",
+                            percent: "70",
+                            content: "다양한 디바이스에 맞춘 와이어프레임과 프로토타입을 제작 가능하고 유관부서와의 협업을 위한 공유 파일을 생성할 수 있습니다."
+                        },
+                        {
+                            id: "fg",
+                            percent: "90",
+                            content: "기획서와 와이어프레임 등 웹기획에 필요한 문서를 작성하고, UI디자인과 프로토타입을 제작할 수 있습니다."
+                        },
+                        {
+                            id: "html",
+                            percent: "90",
+                            content: "웹표준과 접근성을 준수하여 페이지의 구조를 짜고 다양한 콘텐츠를 삽입하여 웹페이지를 제작할 수 있습니다."
+                        },
+                        {
+                            id: "css",
+                            percent: "90",
+                            content: "다양한 레이아웃과 스타일 속성을 적용하여 화면을 디자인하고, 미디어 쿼리를 정의하여 다양한 화면 크기에 맞춘 반응형 페이지를 구성할 수 있습니다."
+                        },
+                        {
+                            id: "js",
+                            percent: "50",
+                            content: "자바스크립트에 대한 기본 개념을 이해하고 있으며 변수를 정의하고 제어문 등을 활용해 슬라이드, 메뉴, 스크롤 애니메이션 등의 동적 기능을 구현할 수 있습니다."
+                        },
+                        {
+                            id: "sass",
+                            percent: "70",
+                            content: "변수와 믹스인, 중첩 규칙을 활용하여 유지보수가 수월한 CSS 코드를 작성할 수 있습니다."
+                        },
+                        {
+                            id: "jq",
+                            percent: "70",
+                            content: "라이브러리를 활용해 HTML 요소의 내용을 변경하거나 스타일을 수정하는 등의 작업이 가능합니다. 클릭과 호버 등의 동작 결과를 적용할 수 있습니다."
+                        },
+                        {
+                            id: "git",
+                            percent: "70",
+                            content: "git 명령어를 활용해 깃허브에 프로젝트를 등록,관리하고 branch를 활용해 협업을 진행할 수 있습니다. "
+                        }
+                    ];
+
+                    console.log(skillContents);
+
+                    // 각 요소에 클릭 이벤트 리스너 추가
+                    skillCircles.forEach(function(skillCircle, index) {
+                        skillCircle.addEventListener("click", function() {
+                            // 클릭된 요소에 showDesc 클래스 추가
+                            this.classList.toggle("showDesc");
+
+                            // 내용 변경
+                            var content = this.querySelector(".skill-content");
+
+                            if(this.classList.contains("showDesc")) {
+                                content.textContent = skillContents[index].content;
+                                console.log(skillContents[index].content);
+                            } else {
+                                content.innerHTML = `
+                                    <span class="count">${skillContents[index].percent}</span>%
+                                `;
+                            }
+                        });
+                    });
+                });
+                
+            </script>
         </section><!-- skill -->
 
         <section id="portfolio" class="portfolio">
@@ -427,6 +714,85 @@
             </div><!-- project8 -->
 
             <div id="portfolioBottom" style="height: 1px;"></div>
+
+            <script>
+                // 링크 이동
+                function moveTrainPage() {
+                    var trainPage = "http://dm.swu.ac.kr/graduate2020/sub18.html";
+                    window.open(trainPage, "_blank");
+                };
+                function moveTrainFg() {
+                    var trainFg = "https://www.figma.com/design/HNv0JqxvvSSQgKhTwDXRiQ/%5B%EC%9D%80%EA%B0%80%EB%B9%84%5D%EB%82%B4%EB%A1%9C%EB%9D%BC%3A%EB%82%B4%EC%9D%BC%EB%A1%9C-%EB%A1%9C%EB%93%9C-%EB%9D%BC%EC%9D%B8?node-id=0-1&t=L6ABD0QxdIgzceDq-1";
+                    window.open(trainFg, "_blank");
+                };
+                function moveclipPage() {
+                    var clipPage = "/works/page/clipservice/index.html";
+                    window.open(clipPage, "_blank");
+                }
+                
+                var btnClip = document.getElementById("modal-clip");
+                var modalClip = document.getElementById("img-clip");
+                var clipClose = document.getElementById("modal-close-btn1");
+
+                btnClip.onclick = function() {
+                    modalClip.style.display = "block";
+                }
+
+                clipClose.onclick = function() {
+                    modalClip.style.display = "none";
+                }
+
+                function moveKhfestPage() {
+                    var khfestPage = "https://leeheejin00.github.io";
+                    window.open(khfestPage, "_blank");
+                }
+                
+                var btnkhFest = document.getElementById("modal-khFest");
+                var modalkhFest = document.getElementById("img-khFest");
+                var feClose = document.getElementById("modal-close-btn2");
+
+                btnkhFest.onclick = function() {
+                    modalkhFest.style.display = "block";
+                }
+
+                feClose.onclick = function() {
+                    modalkhFest.style.display = "none";
+                }
+
+                function movePuppy() {
+                    var puppy = "https://youtu.be/RdmWrrm1t64";
+                    window.open(puppy, "_blank");
+                };
+                function moveLunch() {
+                    var lunch = "https://youtu.be/nRH7hqx5op0";
+                    window.open(lunch, "_blank");
+                };
+                function moveTrain() {
+                    var lunch = "http://dm.swu.ac.kr/graduate2020/sub18.html";
+                    window.open(lunch, "_blank");
+                };
+                function moveCjg() {
+                    var lunch = "https://youtu.be/q7gJMh1dDiQ";
+                    window.open(lunch, "_blank");
+                };
+
+                var btnRamyeon = document.getElementById("modal-ramyeon");
+                var modalRamyeon = document.getElementById("img-ramyeon");
+                var rmClose = document.getElementById("modal-close-btn3");
+
+                btnRamyeon.onclick = function() {
+                    modalRamyeon.style.display = "block";
+                }
+
+                rmClose.onclick = function() {
+                    modalRamyeon.style.display = "none";
+                }
+
+                function movePortfolio() {
+                    var pfindex = "index.html";
+                    window.open(pfindex, "_self");
+                };
+            </script>
         </section><!-- portfolio -->
 
         <section  id="contact" class="contact">
@@ -453,354 +819,50 @@
                     <input type="submit" class="submit" value="SUBMIT">
                 </form>
             </div><!-- info-circle -->
+
+            <script>
+                document.addEventListener("DOMContentLoaded", function() {
+                    const contactSection = document.getElementById('contact');
+                    const portfolioBottom = document.getElementById('portfolioBottom');
+                    const infoCircle = contactSection.querySelector('.info-circle');
+
+                    const contactRect = contactSection.getBoundingClientRect();
+                    const contactSectionTop = contactRect.top + window.scrollY;
+
+                    console.log(contactSectionTop);
+                    // console.log(portfolioBottomOffset);
+
+                    window.addEventListener('scroll', function() {
+                        const scrollPosition = window.scrollY;
+                        const portfolioBottomRect = portfolioBottom.getBoundingClientRect();
+                        const portfolioBottomOffset = portfolioBottomRect.top + window.scrollY;
+
+                        console.log('Scroll Position:', scrollPosition);
+
+                        // portfolio 섹션의 맨 아래 요소가 뷰포트 안에 들어오면 active 클래스 추가
+                        if (scrollPosition >= portfolioBottomOffset + 500) {
+                            infoCircle.classList.add('active-contact');
+                        } else {
+                            infoCircle.classList.remove('active-contact');
+                        }
+                    });
+    
+                    // textarea 
+                    const textarea = document.getElementById('message');
+
+                    // 클릭 이벤트 리스너
+                    textarea.addEventListener('click', function() {
+                        textarea.value = '';
+                    });
+
+                });
+                
+            </script>
         </section>
     </main>
 
     <footer>
         <div class="bottomline"> &copy; 2024. heynacho All rights reserved.</div>
     </footer>
-
-    <script>
-        // header
-        var header = document.getElementById('header');
-        var hamburgerMenu = document.getElementById('hamburger-menu');
-        var mobileGnb = document.getElementById('mobile-gnb');
-
-        hamburgerMenu.addEventListener("click", function() {
-            mobileGnb.classList.toggle("hamburger-show");
-        });
-            
-        window.addEventListener('scroll', function() {
-            if (window.scrollY > 100) {
-                // header.style.backgroundColor = '#fffffee';
-                header.classList.add('header-hide');
-            } else {
-                // header.style.backgroundColor = 'none';
-                header.classList.remove('header-hide');
-            }
-        });
-
-        header.addEventListener('mousemove', function(event) {
-            var mouseY = event.clientY;
-            console.log('Mouse Y:', mouseY);
-
-            if (mouseY < 40) {
-                header.classList.add('header-scroll');
-            } else {
-                header.classList.remove('header-scroll');
-            }
-        });
-
-        header.addEventListener('mouseenter', function() {
-            header.classList.add('header-scroll');
-        });
-
-        header.addEventListener('mouseleave', function() {
-            header.classList.remove('header-scroll');
-        });
-        
-        var gnb = document.querySelector('.gnb');
-        var menuItems = gnb.querySelectorAll('li');
-
-        menuItems.forEach(function(menuItem) {
-            menuItem.addEventListener('click', function() {
-                menuItems.forEach(function(item) {
-                    item.classList.remove('selected-menu');
-                });
-                menuItem.classList.add('selected-menu');
-            });
-        });
-        
-        document.addEventListener('DOMContentLoaded', function() {
-
-            var bodyScrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
-
-            var introSection = 0; 
-
-            var aboutMeSection = document.getElementById('aboutTop').getBoundingClientRect().top + bodyScrollTop;
-            var skillSection = document.getElementById('skillTop').getBoundingClientRect().top + bodyScrollTop;
-            var portfolioSection = document.getElementById('portfolioTop').getBoundingClientRect().top + bodyScrollTop;
-            var contactSection = document.getElementById('contactTop').getBoundingClientRect().top + bodyScrollTop;
-
-            console.log(introSection, aboutMeSection, skillSection, portfolioSection, contactSection);
-
-            window.addEventListener('scroll', function() {
-                var scrollPosition = window.scrollY || window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
-
-                if (scrollPosition >= introSection + 100 && scrollPosition < aboutMeSection + 100) {
-                    activateMenuItem(0); // INTRO
-                } else if (scrollPosition >= aboutMeSection + 100 && scrollPosition < skillSection + 100) {
-                    activateMenuItem(1); // ABOUT ME
-                } else if (scrollPosition >= skillSection + 100 && scrollPosition < portfolioSection + 100) {
-                    activateMenuItem(2); // SKILL
-                } else if (scrollPosition >= portfolioSection + 100 && scrollPosition < contactSection) {
-                    activateMenuItem(3); // PORTFOLIO
-                } else if (scrollPosition >= contactSection) {
-                    activateMenuItem(4); // CONTACT
-                }
-            });
-
-            var gnb = document.querySelector('.gnb');
-            var moGnb = document.querySelector('.mobile-gnb');
-            var menuItems2 = gnb.querySelectorAll('li');
-            var menuItems3 = moGnb.querySelectorAll('li');
-
-            function activateMenuItem(index) {
-                menuItems2.forEach(function(item) {
-                    item.classList.remove('selected-menu');
-                });
-                menuItems3.forEach(function(item) {
-                    item.classList.remove('selected-menu');
-                });
-
-                menuItems2[index].classList.add('selected-menu');
-                menuItems3[index].classList.add('selected-menu');
-            };
-        });
-        
-        // main
-        $(function() {
-            $('#wave-line').load('text_svg.html');
-        })
-
-        // skill
-        document.addEventListener("DOMContentLoaded", function() {
-            
-            const skillSection = document.getElementById('skill');
-            const aboutmeBottom = document.getElementById('aboutmeBottom');
-            const skillCircles = document.querySelectorAll('.skill-circle');
-            
-            const skillRect = skillSection.getBoundingClientRect();
-            const skillSectionTop = skillRect.top + window.scrollY;
-            
-            function startCounters() {
-                $('.count').each(function () {
-                    $(this).prop('Counter',0).animate({
-                        Counter: $(this).text()
-                    }, {
-                        duration: 1000,
-                        easing: 'swing',
-                        step: function (now) {
-                            $(this).text(Math.ceil(now));
-                        }
-                    });
-                });
-            }
-            
-            startCounters();
-            
-            window.addEventListener('scroll', function() {
-                const scrollPosition = window.scrollY;
-                const aboutmeBottomRect = aboutmeBottom.getBoundingClientRect();
-                const aboutmeBottomOffset = aboutmeBottomRect.top + window.scrollY;
-            
-                if (scrollPosition + 100 >= aboutmeBottomOffset) {
-                    skillCircles.forEach((circle, index) => {
-                        setTimeout(() => {
-                            circle.classList.add('active-skill');
-                        }, index * 100); 
-                    });
-                } else {
-                    skillCircles.forEach(circle => circle.classList.remove('active-skill'));
-                }
-            });
-            
-            const menu1 = document.querySelector('.menu1');
-            const menu2 = document.querySelector('.menu2');
-            const menu1Content = document.querySelector('.menu1-content');
-            const menu2Content = document.querySelector('.menu2-content');
-            
-            menu1.addEventListener('click', function() {
-                menu1.classList.add('selected-skill-menu');
-                menu2.classList.remove('selected-skill-menu');
-                
-                menu1Content.classList.add('menu-show');
-                menu2Content.classList.remove('menu-show');   
-            });
-            
-            menu2.addEventListener('click', function() {
-                menu2.classList.add('selected-skill-menu');
-                menu1.classList.remove('selected-skill-menu');
-                
-                menu2Content.classList.add('menu-show');
-                menu1Content.classList.remove('menu-show');
-            });
-            
-            var skillContents = [
-                {
-                    id: "ps",
-                    percent: "98",
-                    content: "레이어와 필터, 마스크 등을 활용해 이미지를 보정하고 합성할 수 있습니다. 웹페이지, SNS/배너 콘텐츠, 포스터 등의 디자인 작업이 가능합니다. "
-                },
-                {
-                    id: "ai",
-                    percent: "98",
-                    content: "패스를 이용한 백터 디자인이 가능합니다. 간단한 캐릭터 디자인, 로고 디자인 등의 작업이 가능합니다."
-                },
-                {
-                    id: "pr",
-                    percent: "80",
-                    content: "트랙매트, 마스크, 이펙트 등을 활용하여 다양한 효과의 컷편집 제작이 가능하며 자막 제작과 멀티캠 편집 작업이 가능합니다."
-                },
-                {
-                    id: "ae",
-                    percent: "80",
-                    content: "마스크, 이펙트, 플러그인 등을 활용하여 타이포 그래피, 인포그래픽 영상 등의 동적인 애니메이션 제작이 가능합니다"
-                },
-                {
-                    id: "xd",
-                    percent: "70",
-                    content: "다양한 디바이스에 맞춘 와이어프레임과 프로토타입을 제작 가능하고 유관부서와의 협업을 위한 공유 파일을 생성할 수 있습니다."
-                },
-                {
-                    id: "fg",
-                    percent: "90",
-                    content: "기획서와 와이어프레임 등 웹기획에 필요한 문서를 작성하고, UI디자인과 프로토타입을 제작할 수 있습니다."
-                },
-                {
-                    id: "html",
-                    percent: "90",
-                    content: "웹표준과 접근성을 준수하여 페이지의 구조를 짜고 다양한 콘텐츠를 삽입하여 웹페이지를 제작할 수 있습니다."
-                },
-                {
-                    id: "css",
-                    percent: "90",
-                    content: "다양한 레이아웃과 스타일 속성을 적용하여 화면을 디자인하고, 미디어 쿼리를 정의하여 다양한 화면 크기에 맞춘 반응형 페이지를 구성할 수 있습니다."
-                },
-                {
-                    id: "js",
-                    percent: "50",
-                    content: "자바스크립트에 대한 기본 개념을 이해하고 있으며 변수를 정의하고 제어문 등을 활용해 슬라이드, 메뉴, 스크롤 애니메이션 등의 동적 기능을 구현할 수 있습니다."
-                },
-                {
-                    id: "sass",
-                    percent: "70",
-                    content: "변수와 믹스인, 중첩 규칙을 활용하여 유지보수가 수월한 CSS 코드를 작성할 수 있습니다."
-                },
-                {
-                    id: "jq",
-                    percent: "70",
-                    content: "라이브러리를 활용해 HTML 요소의 내용을 변경하거나 스타일을 수정하는 등의 작업이 가능합니다. 클릭과 호버 등의 동작 결과를 적용할 수 있습니다."
-                },
-                {
-                    id: "git",
-                    percent: "70",
-                    content: "git 명령어를 활용해 깃허브에 프로젝트를 등록,관리하고 branch를 활용해 협업을 진행할 수 있습니다. "
-                }
-            ];
-            
-            console.log(skillContents);
-            
-            skillCircles.forEach(function(skillCircle, index) {
-                skillCircle.addEventListener("click", function() {
-                    this.classList.toggle("showDesc");
-            
-                    var content = this.querySelector(".skill-content");
-            
-                    if(this.classList.contains("showDesc")) {
-                        content.textContent = skillContents[index].content;
-                        console.log(skillContents[index].content);
-                    } else {
-                        content.innerHTML = `
-                            <span class="count">${skillContents[index].percent}</span>%
-                        `;
-                    }
-                });
-            });
-        });
-        
-        // portfolio
-        function moveTrainPage() {
-            var trainPage = "http://dm.swu.ac.kr/graduate2020/sub18.html";
-            window.open(trainPage, "_blank");
-        };
-        function moveTrainFg() {
-            var trainFg = "https://www.figma.com/design/HNv0JqxvvSSQgKhTwDXRiQ/%5B%EC%9D%80%EA%B0%80%EB%B9%84%5D%EB%82%B4%EB%A1%9C%EB%9D%BC%3A%EB%82%B4%EC%9D%BC%EB%A1%9C-%EB%A1%9C%EB%93%9C-%EB%9D%BC%EC%9D%B8?node-id=0-1&t=L6ABD0QxdIgzceDq-1";
-            window.open(trainFg, "_blank");
-        };
-        function moveclipPage() {
-            var clipPage = "./works/page/clipservice/index.html";
-            window.open(clipPage, "_blank");
-        }
-        function moveKhfestPage() {
-            var khfestPage = "https://leeheejin00.github.io";
-            window.open(khfestPage, "_blank");
-        }
-        var btnkhFest = document.getElementById("modal-khFest");
-        var modalkhFest = document.getElementById("img-khFest");
-        var feClose = document.getElementById("modal-close-btn2");
-
-        btnkhFest.onclick = function() {
-            modalkhFest.style.display = "block";
-        }
-        feClose.onclick = function() {
-            modalkhFest.style.display = "none";
-        }
-
-        function movePuppy() {
-            var puppy = "https://youtu.be/RdmWrrm1t64";
-            window.open(puppy, "_blank");
-        };
-        function moveLunch() {
-            var lunch = "https://youtu.be/nRH7hqx5op0";
-            window.open(lunch, "_blank");
-        };
-        function moveTrain() {
-            var lunch = "http://dm.swu.ac.kr/graduate2020/sub18.html";
-            window.open(lunch, "_blank");
-        };
-        function moveCjg() {
-            var lunch = "https://youtu.be/q7gJMh1dDiQ";
-            window.open(lunch, "_blank");
-        };
-
-        var btnRamyeon = document.getElementById("modal-ramyeon");
-        var modalRamyeon = document.getElementById("img-ramyeon");
-        var rmClose = document.getElementById("modal-close-btn3");
-
-        btnRamyeon.onclick = function() {
-            modalRamyeon.style.display = "block";
-        }
-        rmClose.onclick = function() {
-            modalRamyeon.style.display = "none";
-        }
-
-        function movePortfolio() {
-            var pfindex = "index.html";
-            window.open(pfindex, "_self");
-        };
-
-        // contact
-        document.addEventListener("DOMContentLoaded", function() {
-            const contactSection = document.getElementById('contact');
-            const portfolioBottom = document.getElementById('portfolioBottom');
-            const infoCircle = contactSection.querySelector('.info-circle');
-
-            const contactRect = contactSection.getBoundingClientRect();
-            const contactSectionTop = contactRect.top + window.scrollY;
-
-            console.log(contactSectionTop);
-            // console.log(portfolioBottomOffset);
-
-            window.addEventListener('scroll', function() {
-                const scrollPosition = window.scrollY;
-                const portfolioBottomRect = portfolioBottom.getBoundingClientRect();
-                const portfolioBottomOffset = portfolioBottomRect.top + window.scrollY;
-
-                console.log('Scroll Position:', scrollPosition);
-                if (scrollPosition >= portfolioBottomOffset + 500) {
-                    infoCircle.classList.add('active-contact');
-                } else {
-                    infoCircle.classList.remove('active-contact');
-                }
-            });
-
-            const textarea = document.getElementById('message');
-
-            textarea.addEventListener('click', function() {
-                textarea.value = '';
-            });
-        }); 
-    </script>
 </body>
 </html>
